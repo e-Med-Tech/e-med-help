@@ -21,9 +21,9 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="css/set1.css"/>
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/chosen.min.css" rel="stylesheet">
-    <link href="/css/patient.css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="/css/chosen.min.css" type="text/css" rel="stylesheet">
+    <link href="/css/patient.css"  type="text/css"rel="stylesheet">
 
 
     <!-- =======================================================
@@ -452,6 +452,8 @@ Author URL: https://bootstrapmade.com
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-2.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/wow.min.js"></script>
@@ -459,8 +461,7 @@ Author URL: https://bootstrapmade.com
 <script src="/js/jquery.isotope.min.js"></script>
 <script src="/js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="/js/fliplightbox.min.js"></script>
-<script src="/js/functions.js"></script>
-<script src="/contactform/contactform.js"></script>
+<script src="js/functions.js"></script>
 <script src="/js/chosen.jquery.min.js"></script>
 <script src="/js/patient.js"></script>
 
