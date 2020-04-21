@@ -1,0 +1,91 @@
+package com.example.e_med_help.models;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "user_medical_history")
+@XmlRootElement
+@NamedQueries({
+        @NamedQuery(name = "UserMedicalHistory.findAll", query = "SELECT u FROM MedFile u"),
+        @NamedQuery(name = "UserMedicalHistory.findByFId", query = "SELECT u FROM MedFile u WHERE u.fId = :fId"),
+        @NamedQuery(name = "UserMedicalHistory.findByFUName", query = "SELECT u FROM MedFile u WHERE u.fUName = :fUName"),
+        @NamedQuery(name = "UserMedicalHistory.findByFUSurname", query = "SELECT u FROM MedFile u WHERE u.fUSurname = :fUSurname")})
+public class MedFile implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "F_ID")
+    private Integer fId;
+    @Size(max = 45)
+    @Column(name = "F_U_NAME")
+    private String fUName;
+    @Size(max = 45)
+    @Column(name = "F_U_SURNAME")
+    private String fUSurname;
+    @JoinColumn(name = "F_U_ID", referencedColumnName = "U_ID")
+    @ManyToOne(optional = false)
+    private User fUId;
+
+
+    public Integer getFId() {
+        return fId;
+    }
+
+    public void setFId(Integer fId) {
+        this.fId = fId;
+    }
+
+    public String getFUName() {
+        return fUName;
+    }
+
+    public void setFUName(String fUName) {
+        this.fUName = fUName;
+    }
+
+    public String getFUSurname() {
+        return fUSurname;
+    }
+
+    public void setFUSurname(String fUSurname) {
+        this.fUSurname = fUSurname;
+    }
+
+    public User getFUId() {
+        return fUId;
+    }
+
+    public void setFUId(User fUId) {
+        this.fUId = fUId;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (fId != null ? fId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof MedFile)) {
+            return false;
+        }
+        MedFile other = (MedFile) object;
+        if ((this.fId == null && other.fId != null) || (this.fId != null && !this.fId.equals(other.fId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.project.eMedHelp.models.MedFile[ fId=" + fId + " ]";
+    }
+
+}

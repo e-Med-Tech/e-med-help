@@ -27,7 +27,7 @@
         <link href="css/chosen.min.css" rel="stylesheet">
         <link href="css/symptom-form.css" rel="stylesheet">
 
-        <
+      
 
 
 
