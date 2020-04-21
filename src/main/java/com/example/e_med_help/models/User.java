@@ -147,10 +147,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.uId == null && other.uId != null) || (this.uId != null && !this.uId.equals(other.uId))) {
-            return false;
-        }
-        return true;
+        return (this.uId != null || other.uId == null) && (this.uId == null || this.uId.equals(other.uId));
     }
 
     @Override

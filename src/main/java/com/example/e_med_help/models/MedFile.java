@@ -114,10 +114,7 @@ public class MedFile implements Serializable {
             return false;
         }
         MedFile other = (MedFile) object;
-        if ((this.fId == null && other.fId != null) || (this.fId != null && !this.fId.equals(other.fId))) {
-            return false;
-        }
-        return true;
+        return (this.fId != null || other.fId == null) && (this.fId == null || this.fId.equals(other.fId));
     }
 
     @Override
