@@ -1,5 +1,9 @@
 $(document).ready(function () {
-    $("#tab-2").hide();
+    // $("#tab-2").hide();
+    // $("#tab-3").hide();
+    // $("#tab-4").hide();
+    // $("#tab-5").hide();
+    // $("#tab-6").hide();
     let obj = {};
     $("#next-1").click(function () {
         $("#tab-1").hide();

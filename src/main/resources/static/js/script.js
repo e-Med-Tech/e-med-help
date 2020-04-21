@@ -17,10 +17,10 @@ if (!location.hash) {
   let pc;
     
     
-  function onSuccess() {};
+  function onSuccess() {}
   function onError(error) {
     console.error(error);
-  };
+  }
     
   drone.on('open', error => {
     if (error) {

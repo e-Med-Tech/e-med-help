@@ -5,7 +5,8 @@ import com.example.e_med_help.models.MedFile;
 import java.util.List;
 
 public interface MedFilesServiceInterface {
-    public List<MedFile> getAllMedFiles();
-    public void insertMedFile(MedFile medFile);
-//    TODO getfile
+
+    List<MedFile> getAllMedFiles();
+    void insertMedFile(MedFile medFile);
+    MedFile getMedFile(Integer id);
 }

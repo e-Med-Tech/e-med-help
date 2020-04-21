@@ -1,7 +1,9 @@
 package com.example.e_med_help.models;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,22 +13,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "user")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findByUId", query = "SELECT u FROM User u WHERE u.uId = :uId"),
-    @NamedQuery(name = "User.findByUName", query = "SELECT u FROM User u WHERE u.uName = :uName"),
-    @NamedQuery(name = "User.findByUSurname", query = "SELECT u FROM User u WHERE u.uSurname = :uSurname"),
-    @NamedQuery(name = "User.findByULoginname", query = "SELECT u FROM User u WHERE u.uLoginname = :uLoginname"),
-    @NamedQuery(name = "User.findByUPassword", query = "SELECT u FROM User u WHERE u.uPassword = :uPassword")})
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+        @NamedQuery(name = "User.findByUId", query = "SELECT u FROM User u WHERE u.uId = :uId"),
+        @NamedQuery(name = "User.findByUName", query = "SELECT u FROM User u WHERE u.uName = :uName"),
+        @NamedQuery(name = "User.findByUSurname", query = "SELECT u FROM User u WHERE u.uSurname = :uSurname"),
+        @NamedQuery(name = "User.findByULoginname", query = "SELECT u FROM User u WHERE u.uLoginname = :uLoginname"),
+        @NamedQuery(name = "User.findByUPassword", query = "SELECT u FROM User u WHERE u.uPassword = :uPassword")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +56,8 @@ public class User implements Serializable {
     @Size(max = 60)
     @Column(name = "U_PASSWORD")
     private String uPassword;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fUId")
+    private Collection<MedFile> medFileCollection;
     @JoinColumn(name = "U_ROLE_ID", referencedColumnName = "ROLE_ID")
     @ManyToOne(optional = false)
     private Role uRoleId;
@@ -111,6 +116,15 @@ public class User implements Serializable {
         this.uPassword = uPassword;
     }
 
+    @XmlTransient
+    public Collection<MedFile> getMedFileCollection() {
+        return medFileCollection;
+    }
+
+    public void setMedFileCollection(Collection<MedFile> medFileCollection) {
+        this.medFileCollection = medFileCollection;
+    }
+
     public Role getURoleId() {
         return uRoleId;
     }
@@ -143,5 +157,5 @@ public class User implements Serializable {
     public String toString() {
         return "com.project.eMedHelp.models.User[ uId=" + uId + " ]";
     }
-    
+
 }

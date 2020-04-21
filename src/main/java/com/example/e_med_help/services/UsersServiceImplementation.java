@@ -30,11 +30,6 @@ public class UsersServiceImplementation implements UsersServiceInterface{
         ur.save(user);
     }
 
-//    @Override
-//    public List<User> findCandidatesNotThePresent(Integer userId) {
-//        return ur.findCandidatesNotThePresent(userId,rr.findById(2).get());
-//    }
-
     @Override
     public User getUserById(Integer id) {
         Optional<User> user = ur.findById(id);

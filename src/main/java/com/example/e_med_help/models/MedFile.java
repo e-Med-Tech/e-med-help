@@ -1,9 +1,21 @@
 package com.example.e_med_help.models;
 
-import javax.persistence.*;
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "user_medical_history")
@@ -14,6 +26,7 @@ import java.io.Serializable;
         @NamedQuery(name = "UserMedicalHistory.findByFUName", query = "SELECT u FROM MedFile u WHERE u.fUName = :fUName"),
         @NamedQuery(name = "UserMedicalHistory.findByFUSurname", query = "SELECT u FROM MedFile u WHERE u.fUSurname = :fUSurname")})
 public class MedFile implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +39,26 @@ public class MedFile implements Serializable {
     @Size(max = 45)
     @Column(name = "F_U_SURNAME")
     private String fUSurname;
+    @Basic(optional = false)
+    @NotNull
+    @Lob
+    @Column(name = "F_DATA")
+    private byte[] fData;
     @JoinColumn(name = "F_U_ID", referencedColumnName = "U_ID")
     @ManyToOne(optional = false)
     private User fUId;
 
+    public MedFile() {
+    }
+
+    public MedFile(Integer fId) {
+        this.fId = fId;
+    }
+
+    public MedFile(Integer fId, byte[] fData) {
+        this.fId = fId;
+        this.fData = fData;
+    }
 
     public Integer getFId() {
         return fId;
@@ -53,6 +82,14 @@ public class MedFile implements Serializable {
 
     public void setFUSurname(String fUSurname) {
         this.fUSurname = fUSurname;
+    }
+
+    public byte[] getFData() {
+        return fData;
+    }
+
+    public void setFData(byte[] fData) {
+        this.fData = fData;
     }
 
     public User getFUId() {

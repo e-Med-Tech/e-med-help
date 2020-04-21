@@ -92,10 +92,7 @@ public class Role implements Serializable {
             return false;
         }
         Role other = (Role) object;
-        if ((this.roleId == null && other.roleId != null) || (this.roleId != null && !this.roleId.equals(other.roleId))) {
-            return false;
-        }
-        return true;
+        return (this.roleId != null || other.roleId == null) && (this.roleId == null || this.roleId.equals(other.roleId));
     }
 
     @Override

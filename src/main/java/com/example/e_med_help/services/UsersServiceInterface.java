@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface UsersServiceInterface {
     
-    public User getUserByUsername(String username);
+    User getUserByUsername(String username);
 
-    public void insertUser(User user);
+    void insertUser(User user);
 
   
     
-    public User getUserById(Integer id);
+    User getUserById(Integer id);
     
 }

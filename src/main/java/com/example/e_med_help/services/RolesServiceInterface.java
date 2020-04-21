@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface RolesServiceInterface {
     
-public List<Role> getAllRoles();
+List<Role> getAllRoles();
     
-    public Role getById(Integer id);
+    Role getById(Integer id);
     
 }
