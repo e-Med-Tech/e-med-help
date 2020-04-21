@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -17,11 +17,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
-    <link rel="stylesheet" type="text/css" href="css/set1.css"/>
-    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/overwrite.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/set1.css" />
+    <link href="css/style.css" rel="stylesheet">
     <link href="/css/chosen.min.css" type="text/css" rel="stylesheet">
     <link href="/css/patient.css"  type="text/css"rel="stylesheet">
 
@@ -35,6 +37,39 @@ Author URL: https://bootstrapmade.com
 
 </head>
 <body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target=".navbar-collapse.collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><span>eNno</span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <div class="menu">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="/">Home</a></li>
+                    <li role="presentation"><a href="/registerForm">Sign Up</a></li>
+                    <li role="presentation"><a href="/loginForm">Login</a></li>
+                    <li role="presentation"><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -452,15 +487,16 @@ Author URL: https://bootstrapmade.com
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-2.1.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/wow.min.js"></script>
-<script src="/js/jquery.easing.1.3.js"></script>
-<script src="/js/jquery.isotope.min.js"></script>
-<script src="/js/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="/js/fliplightbox.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="js/fliplightbox.min.js"></script>
 <script src="js/functions.js"></script>
 <script src="/js/chosen.jquery.min.js"></script>
 <script src="/js/patient.js"></script>

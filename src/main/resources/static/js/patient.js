@@ -1,9 +1,4 @@
-$(document).ready(function () {
-    // $("#tab-2").hide();
-    // $("#tab-3").hide();
-    // $("#tab-4").hide();
-    // $("#tab-5").hide();
-    // $("#tab-6").hide();
+(function ($) {
     let obj = {};
     $("#next-1").click(function () {
         $("#tab-1").hide();
@@ -86,6 +81,7 @@ $(document).ready(function () {
             });
             return options;
         }
+
         const symptoms = getSymtoms(data);
         $("#initialSymnptoms").html(symptoms);
         $("#initialSymnptoms").chosen({
@@ -93,6 +89,7 @@ $(document).ready(function () {
         });
     });
     sourceObj = getmyObj();
+
     function getmyObj() {
         const gender = $(".gender:checked").val();
         const age = $("#age").val();
@@ -110,13 +107,19 @@ $(document).ready(function () {
         const geo = $(".geo:checked").val();
         const initialSymptoms = $("#initialSymnptoms").val();
         const evidence = makeEvidence(initialSymptoms, risks, unrisks);
-        const myObj = { "sex": " ", "age": 0, "evidence": " ", "extras": { "disable_groups": true, "enable_triage_5": true, "interview_mode": "default" } }
+        const myObj = {
+            "sex": " ",
+            "age": 0,
+            "evidence": " ",
+            "extras": {"disable_groups": true, "enable_triage_5": true, "interview_mode": "default"}
+        }
         myObj.evidence = evidence;
         myObj.sex = gender;
         myObj.age = age;
         console.log(myObj);
         return myObj;
     }
+
     function makeEvidence(first, second, third) {
         let evidence = [];
         for (let index = 0; index < first.length; index++) {
@@ -133,6 +136,7 @@ $(document).ready(function () {
         }
         return evidence;
     }
+
     function alter_myObj(sourceObj) {
         const newObj = sourceObj;
         const itemId = $("#itemId").val();
@@ -141,6 +145,7 @@ $(document).ready(function () {
         newObj.evidence.push(JSON.parse(text));
         return newObj;
     }
+
     function post_diagnosis(myObj) {
         var settings = {
             url: "https://api.infermedica.com/v2/diagnosis",
@@ -158,6 +163,7 @@ $(document).ready(function () {
         };
         return settings;
     }
+
     function handleDiagnosis(data) {
         let testData = data;
         fillQuestions(testData.question);
@@ -166,6 +172,7 @@ $(document).ready(function () {
             results(testData.conditions);
         }
     }
+
     function fillQuestions(q) {
         const str = `<h5 id="questionText">${q.text}</h5>
                 <div class="btn-group d-flex" style="justify-content: space-between; display: flex;" role="group">
@@ -193,6 +200,7 @@ $(document).ready(function () {
         $("#lastBtns").show();
         $("#startBtn").hide();
     }
+
     function generateInterviewId() {
         let uuidv4 = function () {
             return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
@@ -201,6 +209,7 @@ $(document).ready(function () {
         };
         return this.interviewId = uuidv4();
     }
+
     function results(conditions) {
         let uls = "";
         conditions.forEach(condition => {
