@@ -1,4 +1,4 @@
-(function ($) {
+$(document).ready(function () {
     let obj = {};
     $("#next-1").click(function () {
         $("#tab-1").hide();
