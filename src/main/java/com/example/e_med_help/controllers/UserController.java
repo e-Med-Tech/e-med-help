@@ -128,6 +128,14 @@ public class UserController {
 
     }
 
+    @GetMapping(value = "/patient")
+    public String showPatientPage(){
+        return "patient";
+    }
+
+
+
+
     @PostMapping(value = "/vote")
     public String insertVote(@RequestParam(name = "candidate") Integer id,
             @RequestParam(name = "rating") Integer star,

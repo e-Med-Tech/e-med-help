@@ -165,17 +165,17 @@ Author URL: https://bootstrapmade.com
                                 <b>writing</b></p>
                             <form role="form">
                                 <div class="form-group">
-                                    <label path="med-file">Upload file:</label>
-                                    <input id="med-file" class="form-control" type="file" name="med-file"
-                                           path="med-file"/>
+                                    <form:label path="medFile" for="med-file">Upload file:</form:label>
+                                    <form:input id="med-file" class="form-control" type="file" name="med-file"
+                                           path="medFile"/>
                                 </div>
                                 <div class="form-group">
-                                    <label path="med-text">Write:</label>
-                                    <textarea id="med-text" class="form-control" type="text" name="med-text"
-                                              rows="7"></textarea>
+                                    <form:label path="medText" for="med-text">Write:</form:label>
+                                    <form:textarea id="med-text" class="form-control" type="text" name="med-text"
+                                              rows="7" path="medText"></form:textarea>
                                 </div>
                                 <div class="text-center">
-                                    <input name="med-submit" path="med-submit" id="med-submit" class="btn btn-primary"
+                                    <form:input name="med-submit" path="med-submit" id="med-submit" class="btn btn-primary"
                                            type="submit" value="Submit"/>
                                 </div>
                             </form>
