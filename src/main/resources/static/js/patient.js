@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let obj = {};
+
     $("#next-1").click(function () {
         $("#tab-1").hide();
         $("#tab-2").show();
@@ -29,12 +29,14 @@ $(document).ready(function () {
         $("#tab-5").hide();
         $("#progressBar").css("width", "100%");
         $("#progressText").html("Step-6");
-        obj = getmyObj();
-        $.ajax(post_diagnosis(obj));
+        // obj = getmyObj();
+        // $.ajax(post_diagnosis(obj));
+        call();
     });
     $("#next-6").click(function () {
-        obj = alter_myObj(obj);
-        $.ajax(post_diagnosis(obj));
+        // obj = alter_myObj(obj);
+        // $.ajax(post_diagnosis(obj));
+        callAgain();
     });
     $("#prev-2").click(function () {
         $("#tab-2").hide();
@@ -88,7 +90,17 @@ $(document).ready(function () {
             width: '100%'
         });
     });
-    sourceObj = getmyObj();
+    let obj = {};
+    let sourceObj ={};
+
+    function call(){
+        obj=getmyObj();
+        $.ajax(post_diagnosis(obj));
+    }
+    function callAgain(){
+        obj = alter_myObj(obj);
+        $.ajax(post_diagnosis(obj));
+    }
 
     function getmyObj() {
         const gender = $(".gender:checked").val();
@@ -147,7 +159,7 @@ $(document).ready(function () {
     }
 
     function post_diagnosis(myObj) {
-        var settings = {
+        let settings = {
             url: "https://api.infermedica.com/v2/diagnosis",
             method: "POST",
             timeout: 0,
