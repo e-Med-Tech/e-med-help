@@ -128,6 +128,7 @@ public class UserController {
 
     }
 
+<<<<<<< HEAD
     @GetMapping(value = "/patient")
     public String showPatientPage(){
         return "patient";
@@ -150,29 +151,16 @@ public class UserController {
        // vote.setVoterId(voter);
 
        // vsi.insertVote(vote);
+=======
+>>>>>>> master
 
-        return "index";
-    }
-
-    @GetMapping(value = "/showVotes")
-    public String showMyVotes(ModelMap mm, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-     //   List<Pollvote> lp = vsi.findMyVotes(user);
-     //   if (lp.isEmpty()) {
-            return "index";
-        }
-     //   mm.addAttribute("myVotes", lp);
-     //   System.out.println("");
-     //   return "myVotes";
-   // }
-
-    @ResponseBody
-    @PostMapping(value = "/checkUsername/{username}")
-    public boolean checkUsername(@PathVariable(name = "username") String username) {
-        User user = usi.getUserByUsername(username);
-
-        return (user != null);
-    }
+//    @ResponseBody
+//    @PostMapping(value = "/checkUsername/{username}")
+//    public boolean checkUsername(@PathVariable(name = "username") String username) {
+//        User user = usi.getUserByUsername(username);
+//
+//        return (user != null);
+//    }
 
     
     
