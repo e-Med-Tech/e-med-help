@@ -4,74 +4,76 @@
     Author     : Natasa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-        <meta name="description" content="">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="description" content="">
 
-        <title>e-Med-Help Homepage</title>
+    <title>Physician page</title>
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/css/jquery.bxslider.css" />
-        <link rel="stylesheet" href="/css/normalize.css" />
-        <link rel="stylesheet" href="/css/demo.css" />
-        <link rel="stylesheet" href="/css/set1.css" />
-        <link rel="stylesheet" href="/css/overwrite.css" />
-        <link rel="stylesheet" href="/css/style.css" />
-
-
+    <!-- Bootstrap -->
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/set1.css" />
+    <link href="/css/overwrite.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 
-        <!-- =======================================================
-          Theme Name: eNno
-          Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-          Author: BootstrapMade
-          Author URL: https://bootstrapmade.com
-        ======================================================= -->
-    </head>
 
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">
-                        <span>e-Med-Help</span>
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <div class="menu">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"><a href="/">Home</a></li>
-                                <li role="presentation"><a href="/registerForm">Sign Up</a></li>
-                                <li role="presentation"><a href="/loginForm">Login</a></li>
-                                <li role="presentation"><a href="/contact">Contact</a></li>
-                            </ul>
-                        </ul>
-                    </div>
-                </div>
+
+    <!-- =======================================================
+      Theme Name: eNno
+      Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <span>e-Med-Help</span>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <div class="menu">
+                <ul class="nav nav-tabs" role="tablist">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="/">Home</a></li>
+                        <li role="presentation"><a href="/registerForm">Sign Up</a></li>
+                        <li role="presentation"><a href="/loginForm">Login</a></li>
+                        <li role="presentation"><a href="/contact">Contact</a></li>
+                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i> &nbsp; ${user.UName} ${user.USurname}</a></li>
+                    </ul>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </div>
+</nav>
 
 
         <div class="container" >
             <div class="row">
 
                 <div>
+
                     <div class="videobox">Video box</div>
 
                 </div>
@@ -162,23 +164,17 @@
             </div>
         </footer>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-
-
-        <script type="text/javascript" src="/js/jquery-2.1.1.min.js" />
-
-
-
-
-
-        <script type="text/javascript" src="/js/bootstrap.min.js" ></script>
-        <script type="text/javascript" src="/js/wow.min.js" ></script>
-        <script type="text/javascript" src="/js/jquery.easing.1.3.js" ></script>
-        <script type="text/javascript" src="/js/jquery.isotope.min.js" ></script>
-        <script type="text/javascript" src="/js/jquery.bxslider.min.js" ></script>
-        <script type="text/javascript" src="/js/fliplightbox.min.js" ></script>
-        <script type="text/javascript" src="/js/functions.js" ></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/js/jquery-2.1.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/wow.min.js"></script>
+<script src="/js/jquery.easing.1.3.js"></script>
+<script src="/js/jquery.isotope.min.js"></script>
+<script src="/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="/js/fliplightbox.min.js"></script>
+<script src="/js/functions.js"></script>
+<script src="/contactform/contactform.js"></script>
 
 
 

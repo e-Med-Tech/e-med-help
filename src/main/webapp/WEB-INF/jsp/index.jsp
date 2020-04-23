@@ -15,7 +15,6 @@
         <title>e-Med-Help Homepage</title>
 
         <!-- Bootstrap -->
-        <!-- Bootstrap -->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/animate.css">
         <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -48,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <span>e-Med-Help</span>
                     </a>
                 </div>

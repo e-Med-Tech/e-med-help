@@ -128,43 +128,14 @@ public class UserController {
 
     }
 
-    @PostMapping(value = "/vote")
-    public String insertVote(@RequestParam(name = "candidate") Integer id,
-            @RequestParam(name = "rating") Integer star,
-            HttpSession session) {
-        User voter = (User) session.getAttribute("user");
-        User candidate = usi.getUserById(id);
-       // Pollvote vote = new Pollvote();
-       // Date date = new Date();
-      //  vote.setDatetime(date);
-       // vote.setRating(star);
-       // vote.setCandidateId(candidate);
-       // vote.setVoterId(voter);
 
-       // vsi.insertVote(vote);
-
-        return "index";
-    }
-
-    @GetMapping(value = "/showVotes")
-    public String showMyVotes(ModelMap mm, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-     //   List<Pollvote> lp = vsi.findMyVotes(user);
-     //   if (lp.isEmpty()) {
-            return "index";
-        }
-     //   mm.addAttribute("myVotes", lp);
-     //   System.out.println("");
-     //   return "myVotes";
-   // }
-
-    @ResponseBody
-    @PostMapping(value = "/checkUsername/{username}")
-    public boolean checkUsername(@PathVariable(name = "username") String username) {
-        User user = usi.getUserByUsername(username);
-
-        return (user != null);
-    }
+//    @ResponseBody
+//    @PostMapping(value = "/checkUsername/{username}")
+//    public boolean checkUsername(@PathVariable(name = "username") String username) {
+//        User user = usi.getUserByUsername(username);
+//
+//        return (user != null);
+//    }
 
     
     
