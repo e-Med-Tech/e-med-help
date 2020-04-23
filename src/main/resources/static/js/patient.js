@@ -1,9 +1,4 @@
 $(document).ready(function () {
-<<<<<<< HEAD
-    let obj = {};
-=======
-
->>>>>>> master
     $("#next-1").click(function () {
         $("#tab-1").hide();
         $("#tab-2").show();
