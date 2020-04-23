@@ -58,7 +58,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <span>e-Med-Help</span>
                     </a>
                 </div>
@@ -90,7 +90,7 @@
 
                 <div class="form-group">
                     <form:label path="lopassword">Password</form:label>
-                    <form:input class="form-control" type="text" path="lopassword"/>
+                    <form:input class="form-control" type="password" path="lopassword"/>
                     <form:errors path="lopassword" class="error"/>
                 </div>
 

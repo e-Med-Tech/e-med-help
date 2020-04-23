@@ -5,25 +5,26 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>e-Med-Help</title>
-    <!-- Bootstrap -->
+    <title>Patient page</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/set1.css" />
+    <link href="/css/overwrite.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/jquery.bxslider.css">
-    <link href="css/overwrite.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="css/set1.css" />
-    <link href="css/style.css" rel="stylesheet">
     <link href="/css/chosen.min.css" type="text/css" rel="stylesheet">
     <link href="/css/patient.css"  type="text/css"rel="stylesheet">
 
@@ -43,45 +44,13 @@ Author URL: https://bootstrapmade.com
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target=".navbar-collapse.collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><span>eNno</span></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="menu">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="/">Home</a></li>
-                    <li role="presentation"><a href="/registerForm">Sign Up</a></li>
-                    <li role="presentation"><a href="/loginForm">Login</a></li>
-                    <li role="presentation"><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-
-
-
-
-
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target=".navbar-collapse.collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 <span>e-Med-Help</span>
             </a>
         </div>
@@ -89,16 +58,20 @@ Author URL: https://bootstrapmade.com
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="/">Home</a></li>
+                        <li role="presentation" ><a href="/">Home</a></li>
                         <li role="presentation"><a href="/registerForm">Sign Up</a></li>
                         <li role="presentation"><a href="/loginForm">Login</a></li>
                         <li role="presentation"><a href="/contact">Contact</a></li>
+                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i> &nbsp; ${user.UName} ${user.USurname}</a></li>
                     </ul>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
+
+
+
 
 
 <div class="container">
@@ -485,6 +458,10 @@ Author URL: https://bootstrapmade.com
 </footer>
 
 
+
+
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/js/jquery-2.1.1.min.js"></script>
 
@@ -498,6 +475,7 @@ Author URL: https://bootstrapmade.com
 <script src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/fliplightbox.min.js"></script>
 <script src="js/functions.js"></script>
+<script src="/contactform/contactform.js"></script>
 <script src="/js/chosen.jquery.min.js"></script>
 <script src="/js/patient.js"></script>
 
