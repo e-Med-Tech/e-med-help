@@ -27,12 +27,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
-    
-     @Autowired
+
+    @Autowired
     RolesServiceInterface rsi;
     @Autowired
     UsersServiceInterface usi;
-   
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -49,7 +49,7 @@ public class UserController {
         binder.addValidators(val);
     }
 
-     @Autowired
+    @Autowired
     LoginUserValidator logval;
 
     @InitBinder("LoginUserDto")// Εδω θα βαλεις το object που θες να κανεις validate
@@ -64,16 +64,17 @@ public class UserController {
         mm.addAttribute("newUser", newUser);
         return "addUser";
     }
+
     @GetMapping(value = "/contact")
     public String contact() {
-        
+
         return "contact";
     }
 
     @PostMapping(value = "/addUser")
     public String addUser(@Valid @ModelAttribute(name = "newUser") NewUserDto newUser,
-            BindingResult br,
-            ModelMap mm) {
+                          BindingResult br,
+                          ModelMap mm) {
         if (br.hasErrors()) {
             mm.addAttribute("roles", rsi.getAllRoles());
             return "addUser";
@@ -82,7 +83,7 @@ public class UserController {
         User temp = new User();
         Role role = rsi.getById(newUser.getRole());
         if (role != null) {
-            temp.setURoleId( role );
+            temp.setURoleId(role);
         } else {
             return "error";
         }
@@ -103,65 +104,37 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public String login(@Valid @ModelAttribute(name = "LoginUserDto") LoginUserDto user,
-            BindingResult br,
-            HttpSession session,
-            ModelMap mm) {
+                        BindingResult br,
+                        HttpSession session,
+                        ModelMap mm) {
         if (br.hasErrors()) {
             return "login";
         }
-       
-        
+
+
         User current = usi.getUserByUsername(user.getLousername());
         System.out.println(current);
-       
+
         session.setAttribute("user", current);
-        
-       if (current.getURoleId().getRoleId()==2) {
-       return "physician";
-       } 
-       if (current.getURoleId().getRoleId()==3) {
-       return "pharmacybeta";
-       } 
-       if (current.getURoleId().getRoleId()==1) {
-       return "patient";
-       } else return "login";
+
+        if (current.getURoleId().getRoleId() == 2) {
+            return "physician";
+        }
+        if (current.getURoleId().getRoleId() == 3) {
+            return "pharmacybeta";
+        }
+        if (current.getURoleId().getRoleId() == 1) {
+            return "patient";
+        } else return "login";
 
     }
 
-<<<<<<< HEAD
+
     @GetMapping(value = "/patient")
-    public String showPatientPage(){
+    public String showPatientPage() {
         return "patient";
     }
 
 
-
-
-    @PostMapping(value = "/vote")
-    public String insertVote(@RequestParam(name = "candidate") Integer id,
-            @RequestParam(name = "rating") Integer star,
-            HttpSession session) {
-        User voter = (User) session.getAttribute("user");
-        User candidate = usi.getUserById(id);
-       // Pollvote vote = new Pollvote();
-       // Date date = new Date();
-      //  vote.setDatetime(date);
-       // vote.setRating(star);
-       // vote.setCandidateId(candidate);
-       // vote.setVoterId(voter);
-
-       // vsi.insertVote(vote);
-=======
->>>>>>> master
-
-//    @ResponseBody
-//    @PostMapping(value = "/checkUsername/{username}")
-//    public boolean checkUsername(@PathVariable(name = "username") String username) {
-//        User user = usi.getUserByUsername(username);
-//
-//        return (user != null);
-//    }
-
-    
-    
 }
+
