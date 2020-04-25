@@ -36,10 +36,6 @@ public class UserController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    @GetMapping(value = "/")
-    public String def() {
-        return "index";
-    }
 
     @Autowired
     NewUserDtoValidator val;
