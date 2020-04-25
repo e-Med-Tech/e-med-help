@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>--%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -14,19 +14,19 @@
     <title>Patient page</title>
 
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/set1.css" />
-    <link href="/css/overwrite.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css" />
+    <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link href="/css/chosen.min.css" type="text/css" rel="stylesheet">
-    <link href="/css/patient.css"  type="text/css"rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link href="${pageContext.request.contextPath}/css/chosen.min.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/patient.css"  type="text/css"rel="stylesheet">
 
 
     <!-- =======================================================
@@ -58,10 +58,10 @@ Author URL: https://bootstrapmade.com
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" ><a href="/">Home</a></li>
-                        <li role="presentation"><a href="/registerForm">Sign Up</a></li>
-                        <li role="presentation"><a href="/loginForm">Login</a></li>
-                        <li role="presentation"><a href="/contact">Contact</a></li>
+                        <li role="presentation" ><a href="${pageContext.request.contextPath}/">Home</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                         <li role="presentation"><a href="#"> <i class="fa fa-user"></i> &nbsp; ${user.UName} ${user.USurname}</a></li>
                     </ul>
                 </ul>
@@ -138,17 +138,17 @@ Author URL: https://bootstrapmade.com
                                 <b>writing</b></p>
                             <form role="form">
                                 <div class="form-group">
-                                    <form:label path="medFile" for="med-file">Upload file:</form:label>
-                                    <form:input id="med-file" class="form-control" type="file" name="med-file"
+                                    <label path="medFile" for="med-file">Upload file:</label>
+                                    <input id="med-file" class="form-control" type="file" name="med-file"
                                            path="medFile"/>
                                 </div>
                                 <div class="form-group">
-                                    <form:label path="medText" for="med-text">Write:</form:label>
-                                    <form:textarea id="med-text" class="form-control" type="text" name="med-text"
-                                              rows="7" path="medText"></form:textarea>
+                                    <label path="medText" for="med-text">Write:</label>
+                                    <textarea id="med-text" class="form-control" type="text" name="med-text"
+                                              rows="7" path="medText"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <form:input name="med-submit" path="med-submit" id="med-submit" class="btn btn-primary"
+                                    <input name="med-submit" path="med-submit" id="med-submit" class="btn btn-primary"
                                            type="submit" value="Submit"/>
                                 </div>
                             </form>
@@ -196,13 +196,13 @@ Author URL: https://bootstrapmade.com
                                 <li class="btn btn-light active btn-lg-01" style="margin-right: 40px;">
                                     <input type="radio" name="gender" id="male" autocomplete="off" value="male" checked
                                            class="gender">
-                                    <img src="img/male-solid.svg" alt="Male">
+                                    <img src="${pageContext.request.contextPath}/img/male-solid.svg" alt="Male">
                                 </li>
 
                                 <li class="btn btn-light btn-lg-01">
                                     <input type="radio" name="gender" id="female" autocomplete="off" value="female"
                                            class="gender">
-                                    <img src="img/female-solid.svg" alt="Female">
+                                    <img src="${pageContext.request.contextPath}/img/female-solid.svg" alt="Female">
                                 </li>
 
                             </ul>
@@ -463,21 +463,21 @@ Author URL: https://bootstrapmade.com
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/jquery.isotope.min.js"></script>
-<script src="js/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="js/fliplightbox.min.js"></script>
-<script src="js/functions.js"></script>
-<script src="/contactform/contactform.js"></script>
-<script src="/js/chosen.jquery.min.js"></script>
-<script src="/js/patient.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/wow.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.isotope.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/functions.js"></script>
+<script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
+<script src="${pageContext.request.contextPath}/js/chosen.jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/patient.js"></script>
 
 
 </body>
