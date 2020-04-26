@@ -137,9 +137,10 @@ Author URL: https://bootstrapmade.com
                             <form:form role="form" action="${pageContext.request.contextPath}/patient/file"
                                        enctype="multipart/form-data"
                                        method="post">
-                                <input type="text" name="username" value="${user.UName}"/>
-                                <input type="text" name="usersurname" value="${user.USurname}"/>
-                                <input type="text" name="userId" value="${user.UId}"/>
+                                <input type="text" name="username" value="${user.UName}" hidden/>
+                                <input type="text" name="usersurname" value="${user.USurname}" hidden/>
+                                <input type="text" name="userId" value="${user.UId}" hidden/>
+
                                 <div class="form-group">
                                     <label for="med-file">Upload file:</label>
                                     <input id="med-file" class="form-control" type="file" name="userPdf"/>
