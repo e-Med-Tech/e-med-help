@@ -28,7 +28,9 @@
     <link href="${pageContext.request.contextPath}/css/signupform.css" rel="stylesheet">
 
 
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
     <!-- =======================================================
       Theme Name: eNno
@@ -46,7 +48,7 @@
     </style>
 
     <Script>
-        //alert button if passwords dont match
+        //alert button if passwords don't match
         $(document).ready(function () {
             $('#password2').on("focusout", function () {
                 $('#errorsign').remove();
@@ -59,7 +61,7 @@
                 });
             });
 
-            //fernei boolean gia username
+            // boolean for username
             $(document).ready(function () {
                 var dd = $("#username");
                 $(dd).on("focusout", function () {
@@ -80,7 +82,6 @@
         </script>
 
     </head>
-</head>
 
 <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -117,7 +118,7 @@
 
         <div class="form-group">
 
-            <form:form method="POST" action="/addUser" modelAttribute="newUser">
+            <form:form method="POST" action="/addUser" modelAttribute="newUser" id="form">
                 <h2>Sign Up</h2>
                 <p class="hint-text">Create your account. It's free and only takes a minute.</p>
                 <div class="row">
@@ -268,6 +269,10 @@
     <script src="${pageContext.request.contextPath}/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/functions.js"></script>
+
+    <script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
 
 
 </body>

@@ -172,7 +172,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/functions.js"></script>
 <script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
-
+<script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
 
 </body>
 </html>
