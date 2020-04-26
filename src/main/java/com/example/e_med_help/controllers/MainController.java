@@ -24,19 +24,19 @@ import javax.validation.Valid;
 public class MainController {
 
     @Autowired
-    RolesServiceInterface rsi;
+    RolesServiceInterface rolesServiceInterface;
 
     @Autowired
-    UsersServiceInterface usi;
+    UsersServiceInterface usersServiceInterface;
 
     @Autowired
     PasswordEncoder passwordEncoder;
 
     @Autowired
-    NewUserDtoValidator val;
+    NewUserDtoValidator newUserDtoValidator;
 
     @Autowired
-    LoginUserValidator logval;
+    LoginUserValidator loginUserValidator;
 
     @GetMapping
     public String welcomePage() {
@@ -45,13 +45,13 @@ public class MainController {
 
     @InitBinder("LoginUserDto")// Εδω θα βαλεις το object που θες να κανεις validate
     public void setupBinder1(WebDataBinder binder) {
-        binder.addValidators(logval);
+        binder.addValidators(loginUserValidator);
     }
 
     @GetMapping(value = "/registerForm")
     public String registerForm(ModelMap mm) {
         NewUserDto newUser = new NewUserDto();
-        mm.addAttribute("roles", rsi.getAllRoles());
+        mm.addAttribute("roles", rolesServiceInterface.getAllRoles());
         mm.addAttribute("newUser", newUser);
         return "addUser";
     }
@@ -66,12 +66,12 @@ public class MainController {
                           BindingResult br,
                           ModelMap mm) {
         if (br.hasErrors()) {
-            mm.addAttribute("roles", rsi.getAllRoles());
+            mm.addAttribute("roles", rolesServiceInterface.getAllRoles());
             return "addUser";
         }
 
         User temp = new User();
-        Role role = rsi.getById(newUser.getRole());
+        Role role = rolesServiceInterface.getById(newUser.getRole());
         if (role != null) {
             temp.setURoleId(role);
         } else {
@@ -81,7 +81,7 @@ public class MainController {
         temp.setUSurname(newUser.getSurname());
         temp.setULoginname(newUser.getUsername());
         temp.setUPassword(passwordEncoder.encode(newUser.getPassword1()));
-        usi.insertUser(temp);
+        usersServiceInterface.insertUser(temp);
 
         return "index";
     }
@@ -100,7 +100,7 @@ public class MainController {
         if (br.hasErrors()) {
             return "login";
         }
-        User current = usi.getUserByUsername(user.getLousername());
+        User current = usersServiceInterface.getUserByUsername(user.getLousername());
         System.out.println(current);
 
         session.setAttribute("user", current);
@@ -115,6 +115,14 @@ public class MainController {
             return "redirect:/patient/home";
         } else return "login";
 
+    }
+
+    @ResponseBody
+    @PostMapping(value = "/checkUsername/{username}")
+    public boolean checkUsername(@PathVariable(name = "username") String username) {
+        User user = usersServiceInterface.getUserByUsername(username);
+
+        return (user != null);
     }
 
 }
