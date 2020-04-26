@@ -4,56 +4,56 @@
     Author     : Natasa
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>e-Med-Help Homepage</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>e-Med-Help Homepage</title>
 
-        <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/jquery.bxslider.css">
-        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />
-        <link rel="stylesheet" type="text/css" href="css/set1.css" />
-        <link href="css/overwrite.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="css/signupform.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
+    <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/signupform.css" rel="stylesheet">
 
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-        <!-- =======================================================
-          Theme Name: eNno
-          Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-          Author: BootstrapMade
-          Author URL: https://bootstrapmade.com
-        ======================================================= -->
+    <!-- =======================================================
+      Theme Name: eNno
+      Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
 
-        <style>
-            .error{
+    <style>
+        .error {
 
-                color: red;
+            color: red;
 
-            }
-        </style>
+        }
+    </style>
 
-        <Script>
-            //alert button if passwords dont match
-            $(document).ready(function () {
-                $('#password2').on("focusout", function () {
-                    $('#errorsign').remove();
-                    if ($('#password1').val() !== $('#password2').val()) {
-                        $('#submitbtn').attr("disabled", true);
-                        $('#pass2label').prepend('<i id="errorsign" class="material-icons" style="font-size:15px;color:red"> Warning: Passwords do not match! </i>');
-                    } else {
+    <Script>
+        //alert button if passwords dont match
+        $(document).ready(function () {
+            $('#password2').on("focusout", function () {
+                $('#errorsign').remove();
+                if ($('#password1').val() !== $('#password2').val()) {
+                    $('#submitbtn').attr("disabled", true);
+                    $('#pass2label').prepend('<i id="errorsign" class="material-icons" style="font-size:15px;color:red"> Warning: Passwords do not match! </i>');
+                } else {
                         $('#submitbtn').removeAttr("disabled");
                     }
                 });
@@ -100,12 +100,13 @@
             <div class="navbar-collapse collapse">
                 <div class="menu">
                     <ul class="nav nav-tabs" role="tablist">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"><a href="/">Home</a></li>
-                            <li role="presentation" class="active"><a href="/registerForm">Sign Up</a></li>
-                            <li role="presentation"><a href="/loginForm">Login</a></li>
-                            <li role="presentation"><a href="/contact">Contact</a></li>
-                        </ul>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
+                        <li role="presentation" class="active"><a
+                                href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a>
+                        </li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -169,18 +170,22 @@
                 </div>
 
 
-                <div class="form-group">
-                    <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-                </div>
-
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-lg btn-block" id="submitbtn" value="Submit" disabled>Register Now</button>
-                    <div class="text-center">Already have an account? <a href="/loginForm">Login here</a></div>
-                </div>
-
+            <div class="form-group">
+                <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms
+                    of Use</a> &amp; <a href="#">Privacy Policy</a></label>
             </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block" id="submitbtn" value="Submit" disabled>
+                    Register Now
+                </button>
+                <div class="text-center">Already have an account? <a
+                        href="${pageContext.request.contextPath}/loginForm">Login here</a></div>
+            </div>
+
         </div>
+    </div>
 
     </form:form>
 
@@ -190,19 +195,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 f-about">
-                        <a href="index.html"><h1>About us</h1></a>
-                        <q>Every day, more and more people in need of care are forced to delay, 
-                            go without, or seek inappropriate care options. 
-                            Our goal in founding e-Med-Help? 
+                        <a href="${pageContext.request.contextPath}/contact"><h1>About us</h1></a>
+                        <q>Every day, more and more people in need of care are forced to delay,
+                            go without, or seek inappropriate care options.
+                            Our goal in founding e-Med-Help?
                             Provide the solution to make healthcare work.
-                            We’ve developed premium technology merged with quality healthcare to provide affordable, 
+                            We’ve developed premium technology merged with quality healthcare to provide affordable,
                             accessible care whenever needed.</q>
                         <br>
                         <b>From the Founding Team</b>
                     </div>
                     <div class="col-md-4 l-posts">
                         <h3 class="widgetheading">Latest Posts</h3>
-                        <p>Covid-19 has infected more than 1.9 million people and killed at least 119,000 worldwide, according to Johns Hopkins University.</p>
+                        <p>Covid-19 has infected more than 1.9 million people and killed at least 119,000 worldwide,
+                            according to Johns Hopkins University.</p>
                     </div>
                     <div class="col-md-4 f-contact">
                         <h3 class="widgetheading">Stay in touch</h3>
@@ -253,15 +259,15 @@
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/jquery.bxslider.min.js"></script>
-    <script type="text/javascript" src="js/fliplightbox.min.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/wow.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.isotope.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/functions.js"></script>
 
 
 </body>

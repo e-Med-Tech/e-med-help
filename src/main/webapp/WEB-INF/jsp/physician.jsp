@@ -16,17 +16,15 @@
 
     <!-- Bootstrap -->
     <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/animate.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/set1.css" />
-    <link href="/css/overwrite.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-
-
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
+    <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
 
     <!-- =======================================================
@@ -55,13 +53,12 @@
         <div class="navbar-collapse collapse">
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation"><a href="/">Home</a></li>
-                        <li role="presentation"><a href="/registerForm">Sign Up</a></li>
-                        <li role="presentation"><a href="/loginForm">Login</a></li>
-                        <li role="presentation"><a href="/contact">Contact</a></li>
-                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i> &nbsp; ${user.UName} ${user.USurname}</a></li>
-                    </ul>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+                    <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
+                        &nbsp; ${user.UName} ${user.USurname}</a></li>
                 </ul>
             </div>
         </div>
@@ -69,70 +66,70 @@
 </nav>
 
 
-        <div class="container" >
-            <div class="row">
+<div class="container">
+    <div class="row">
 
-                <div>
+        <div>
 
-                    <div class="videobox">Video box</div>
+            <div class="videobox">Video box</div>
 
-                </div>
-            </div>
+        </div>
+    </div>
 
 
-            <div class="container">
-                <div class="row">
+    <div class="container">
+        <div class="row">
 
-                    <div>
-                        <div class="ficon features">
-                            <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
+            <div>
+                <div class="ficon features">
+                    <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
 
-                            <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send Prescription</b></a>
-                        </div>
-                    </div>
+                    <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send
+                        Prescription</b></a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-
-
-        <footer>
-            <div class="inner-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 f-about">
-                            <a href="index.html"><h1>About us</h1></a>
-                            <q>Every day, more and more people in need of care are forced to delay, 
-                                go without, or seek inappropriate care options. 
-                                Our goal in founding e-Med-Help? 
-                                Provide the solution to make healthcare work.
-                                We’ve developed premium technology merged with quality healthcare to provide affordable, 
-                                accessible care whenever needed.</q>
-                            <br>
-                            <b>From the Founding Team</b>
-                        </div>
-                        <div class="col-md-4 l-posts">
-                            <h3 class="widgetheading">Latest Posts</h3>
-                            <p>Covid-19 has infected more than 1.9 million people and killed at least 119,000 worldwide, according to Johns Hopkins University.</p>
-                        </div>
-                        <div class="col-md-4 f-contact">
-                            <h3 class="widgetheading">Stay in touch</h3>
-                            <a href="#">
-                                <p><i class="fa fa-envelope"></i> e-med-help@gmail.com</p>
-                            </a>
-                            <p><i class="fa fa-phone"></i> +030 210 10 10 100</p>
-                            <p><i class="fa fa-home"></i> e-Med-Help inc | Athens, Greece</p>
-                        </div>
-                    </div>
+<footer>
+    <div class="inner-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 f-about">
+                    <a href="${pageContext.request.contextPath}/contact"><h1>About us</h1></a>
+                    <q>Every day, more and more people in need of care are forced to delay,
+                        go without, or seek inappropriate care options.
+                        Our goal in founding e-Med-Help?
+                        Provide the solution to make healthcare work.
+                        We’ve developed premium technology merged with quality healthcare to provide affordable,
+                        accessible care whenever needed.</q>
+                    <br>
+                    <b>From the Founding Team</b>
+                </div>
+                <div class="col-md-4 l-posts">
+                    <h3 class="widgetheading">Latest Posts</h3>
+                    <p>Covid-19 has infected more than 1.9 million people and killed at least 119,000 worldwide,
+                        according to Johns Hopkins University.</p>
+                </div>
+                <div class="col-md-4 f-contact">
+                    <h3 class="widgetheading">Stay in touch</h3>
+                    <a href="#">
+                        <p><i class="fa fa-envelope"></i> e-med-help@gmail.com</p>
+                    </a>
+                    <p><i class="fa fa-phone"></i> +030 210 10 10 100</p>
+                    <p><i class="fa fa-home"></i> e-Med-Help inc | Athens, Greece</p>
                 </div>
             </div>
+        </div>
+    </div>
 
 
-            <div class="last-div">
-                <div class="container">
-                    <div class="row">
-                        <div class="copyright">
+    <div class="last-div">
+        <div class="container">
+            <div class="row">
+                <div class="copyright">
                             &copy; eNno Theme. All Rights Reserved
                             <div class="credits">
                                 <!--
@@ -158,26 +155,25 @@
                     </div>
                 </div>
 
-                <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+        <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
 
 
-            </div>
-        </footer>
+    </div>
+</footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/wow.min.js"></script>
-<script src="/js/jquery.easing.1.3.js"></script>
-<script src="/js/jquery.isotope.min.js"></script>
-<script src="/js/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="/js/fliplightbox.min.js"></script>
-<script src="/js/functions.js"></script>
-<script src="/contactform/contactform.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/wow.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.isotope.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/functions.js"></script>
+<script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
 
 
-
-    </body>
+</body>
 </html>
 

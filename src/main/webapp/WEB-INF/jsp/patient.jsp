@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -18,15 +18,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css" />
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
     <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link href="${pageContext.request.contextPath}/css/chosen.min.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/patient.css"  type="text/css"rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/patient.css" type="text/css" rel="stylesheet">
 
 
     <!-- =======================================================
@@ -44,7 +44,8 @@ Author URL: https://bootstrapmade.com
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target=".navbar-collapse.collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -57,21 +58,18 @@ Author URL: https://bootstrapmade.com
         <div class="navbar-collapse collapse">
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" ><a href="${pageContext.request.contextPath}/">Home</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
-                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i> &nbsp; ${user.UName} ${user.USurname}</a></li>
-                    </ul>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a>
+                    </li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+                    <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
+                        &nbsp; ${user.UName} ${user.USurname}</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </nav>
-
-
-
 
 
 <div class="container">
@@ -122,7 +120,7 @@ Author URL: https://bootstrapmade.com
             </ul>
 
 
-            <!-- Modal -->
+            <!-- TODO Modal -->
             <div class="modal fade" id="medicalInput" tabindex="-1" aria-hidden="true">
                 <!-- role="dialog"  -->
                 <div class="modal-dialog modal-dialog-centered">
@@ -136,22 +134,26 @@ Author URL: https://bootstrapmade.com
                         <div class="modal-body">
                             <p>You can update your medical history either by <b>uploading a file</b> or by
                                 <b>writing</b></p>
-                            <form role="form">
+                            <form:form role="form" action="${pageContext.request.contextPath}/patient/file"
+                                       enctype="multipart/form-data"
+                                       method="post">
+                                <input type="text" name="username" value="${user.UName}"/>
+                                <input type="text" name="usersurname" value="${user.USurname}"/>
+                                <input type="text" name="userId" value="${user.UId}"/>
                                 <div class="form-group">
-                                    <label path="medFile" for="med-file">Upload file:</label>
-                                    <input id="med-file" class="form-control" type="file" name="med-file"
-                                           path="medFile"/>
+                                    <label for="med-file">Upload file:</label>
+                                    <input id="med-file" class="form-control" type="file" name="userPdf"/>
                                 </div>
                                 <div class="form-group">
-                                    <label path="medText" for="med-text">Write:</label>
-                                    <textarea id="med-text" class="form-control" type="text" name="med-text"
-                                              rows="7" path="medText"></textarea>
+                                    <label for="med-text">Write:</label>
+                                    <textarea id="med-text" class="form-control" type="text" name="userText"
+                                              rows="7"></textarea>
                                 </div>
                                 <div class="text-center">
-                                    <input name="med-submit" path="med-submit" id="med-submit" class="btn btn-primary"
+                                    <input name="med-submit" id="med-submit" class="btn btn-primary"
                                            type="submit" value="Submit"/>
                                 </div>
-                            </form>
+                            </form:form>
                         </div>
                         <div class="modal-footer">
 
@@ -195,13 +197,13 @@ Author URL: https://bootstrapmade.com
                             <ul>
                                 <li class="btn btn-light active btn-lg-01" style="margin-right: 40px;">
                                     <input type="radio" name="gender" id="male" autocomplete="off" value="male" checked
-                                           class="gender">
+                                           class="gender"/>
                                     <img src="${pageContext.request.contextPath}/img/male-solid.svg" alt="Male">
                                 </li>
 
                                 <li class="btn btn-light btn-lg-01">
                                     <input type="radio" name="gender" id="female" autocomplete="off" value="female"
-                                           class="gender">
+                                           class="gender"/>
                                     <img src="${pageContext.request.contextPath}/img/female-solid.svg" alt="Female">
                                 </li>
 
@@ -392,7 +394,7 @@ Author URL: https://bootstrapmade.com
         <div class="container">
             <div class="row">
                 <div class="col-md-4 f-about">
-                    <a href="index.html"><h1>About us</h1></a>
+                    <a href="${pageContext.request.contextPath}/contact"><h1>About us</h1></a>
                     <q>Every day, more and more people in need of care are forced to delay,
                         go without, or seek inappropriate care options.
                         Our goal in founding e-Med-Help?
@@ -456,10 +458,6 @@ Author URL: https://bootstrapmade.com
 
     </div>
 </footer>
-
-
-
-
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
