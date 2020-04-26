@@ -106,7 +106,7 @@ public class MainController {
         session.setAttribute("user", current);
 
         if (current.getURoleId().getRoleId() == 2) {
-            return "physician";
+            return "redirect:physician/home";
         }
         if (current.getURoleId().getRoleId() == 3) {
             return "pharmacybeta";
