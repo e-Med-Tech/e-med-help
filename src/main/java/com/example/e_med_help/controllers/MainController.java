@@ -56,6 +56,16 @@ public class MainController {
         return "addUser";
     }
 
+    @GetMapping(value = "/shoppingbasket")
+    public String shoppingBasket() {
+        return "shoppingbasket";
+    }
+
+    @GetMapping(value = "/payment")
+    public String payment() {
+        return "payment";
+    }
+
     @GetMapping(value = "/contact")
     public String contact() {
         return "contact";
@@ -109,7 +119,7 @@ public class MainController {
             return "redirect:physician/home";
         }
         if (current.getURoleId().getRoleId() == 3) {
-            return "pharmacybeta";
+            return "redirect:pharmacist/home";
         }
         if (current.getURoleId().getRoleId() == 1) {
             return "redirect:/patient/home";
