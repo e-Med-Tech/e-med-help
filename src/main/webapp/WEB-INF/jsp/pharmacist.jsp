@@ -1,6 +1,6 @@
-<%-- 
-    Document   : physician
-    Created on : Apr 18, 2020, 8:45:19 PM
+<%--
+    Document   : pharmacybeta
+    Created on : Apr 20, 2020, 10:33:28 PM
     Author     : Natasa
 --%>
 
@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="description" content="">
 
-    <title>Physician page</title>
+    <title>Pharmacist page</title>
 
     <!-- Bootstrap -->
 
@@ -65,31 +65,51 @@
     </div>
 </nav>
 
+<br>
+<br>
+<br>
+<br>
 
 <div class="container">
     <div class="row">
-
-        <div>
-
-            <div class="videobox">Video box</div>
-
-        </div>
-    </div>
+        <div class="col-md-6 col-md-offset-3">
+            <div class="text-center">
+                <h2>Physician's prescription:</h2>
 
 
-    <div class="container">
-        <div class="row">
 
-            <div>
-                <div class="ficon features">
-                    <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
 
-                    <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send
-                        Prescription</b></a>
+
+
+                <div class="row">
+
+                    <div>
+
+                        <div class="ficon features">
+                            <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
+                                <iframe src="https://www.ece.ntua.gr/gr/announcement/616" width="100%" height="450px">
+                                </iframe></div>
+
+                            <div class="ficon features"></div>
+                            <h2>Medicines' pricing:</h2>
+                            <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.9s">
+                                <a href="${pageContext.request.contextPath}/shoppingbasket"
+                                   class="btn btn-default" role="button">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span><b>  PRICING</b></a></div>
+
+
+
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
-        </div>
+
+        </div><br><br><br><br><br>
+        <hr>
     </div>
+</div>
 </div>
 
 
@@ -130,30 +150,30 @@
         <div class="container">
             <div class="row">
                 <div class="copyright">
-                            &copy; eNno Theme. All Rights Reserved
-                            <div class="credits">
-                                <!--
-                                  All the links in the footer should remain intact. 
-                                  You can delete the links only if you purchased the pro version.
-                                  Licensing information: https://bootstrapmade.com/license/
-                                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
-                                -->
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                            </div>
-                        </div>
+                    &copy; eNno Theme. All Rights Reserved
+                    <div class="credits">
+                        <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
+                        -->
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <ul class="social-network">
-                            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ul class="social-network">
+                    <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
+                </ul>
+            </div>
+        </div>
 
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
 
@@ -176,4 +196,3 @@
 
 </body>
 </html>
-
