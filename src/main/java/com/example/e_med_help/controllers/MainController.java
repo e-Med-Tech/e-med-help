@@ -119,7 +119,7 @@ public class MainController {
             return "redirect:physician/home";
         }
         if (current.getURoleId().getRoleId() == 3) {
-            return "pharmacist";
+            return "redirect:pharmacist/home";
         }
         if (current.getURoleId().getRoleId() == 1) {
             return "redirect:/patient/home";
