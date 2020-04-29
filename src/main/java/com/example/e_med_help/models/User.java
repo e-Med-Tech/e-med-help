@@ -2,6 +2,7 @@ package com.example.e_med_help.models;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -61,6 +62,8 @@ public class User implements Serializable {
     @JoinColumn(name = "U_ROLE_ID", referencedColumnName = "ROLE_ID")
     @ManyToOne(optional = false)
     private Role uRoleId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fPId")
+    private Collection<PrescriptionFile> prescriptionFileCollection;
 
     public User() {
     }
@@ -133,21 +136,33 @@ public class User implements Serializable {
         this.uRoleId = uRoleId;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (uId != null ? uId.hashCode() : 0);
-        return hash;
+    @XmlTransient
+    public Collection<PrescriptionFile> getPrescriptionFileCollection() {
+        return prescriptionFileCollection;
+    }
+
+    public void setPrescriptionFileCollection(Collection<PrescriptionFile> prescriptionFileCollection) {
+        this.prescriptionFileCollection = prescriptionFileCollection;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
-            return false;
-        }
-        User other = (User) object;
-        return (this.uId != null || other.uId == null) && (this.uId == null || this.uId.equals(other.uId));
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(uId, user.uId) &&
+                Objects.equals(uName, user.uName) &&
+                Objects.equals(uSurname, user.uSurname) &&
+                Objects.equals(uLoginname, user.uLoginname) &&
+                Objects.equals(uPassword, user.uPassword) &&
+                Objects.equals(medFileCollection, user.medFileCollection) &&
+                Objects.equals(uRoleId, user.uRoleId) &&
+                Objects.equals(prescriptionFileCollection, user.prescriptionFileCollection);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uId, uName, uSurname, uLoginname, uPassword, medFileCollection, uRoleId, prescriptionFileCollection);
     }
 
     @Override
