@@ -238,3 +238,47 @@ $(document).ready(function () {
         $("#startBtn").show();
     }
 });
+var Sdrone1;
+function patientStart() {
+
+    $('#paClose').removeAttr('disabled');
+    $('#paStart').attr('disabled', 'disabled');
+    startChannel();
+    showOnlinePatient();
+}
+function patientClose() {
+    $('#paStart').removeAttr('disabled');
+    $('#paClose').attr('disabled', 'disabled');
+    disconnectPatient();
+    closeChannel();
+}
+function showOnlinePatient() {
+
+    Sdrone1 = new ScaleDrone('4HwAoJvexNnKycx2');
+    const roomHash1 = "onlineRoom";
+
+    const roomName = 'observable-' + roomHash1;
+    room1 = Sdrone1.subscribe(roomName);
+    room1.on('open', error => {
+        if (error) {
+            return console.error(error);
+        }
+        console.log('Successfully joined room');
+    });
+    room1.on('member_join', member => {
+        members.push(member);
+        $('#messageText').show();
+    });
+
+
+    room1.on('member_leave', ({id}) => {
+        const index = members.findIndex(member => member.id === id);
+        members.splice(index, 1);
+        $('#messageText').hide();
+    });
+}
+function disconnectPatient(){
+    room1.unsubscribe();
+    Sdrone1.close();
+   
+}
