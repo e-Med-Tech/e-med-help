@@ -88,9 +88,7 @@
 
                 <div>
                     <div class="ficon features">
-                        <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
-
-                        <!-- <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send Prescription</b></a> -->
+                        <a href="${pageContext.request.contextPath}/physician/medical-history" class="btn btn-default" target="_blank" role="button"><b> View Patient's files</b></a>
 
                         <a href="${pageContext.request.contextPath}/physician/prescription" class="btn btn-default" role="button"><b> Send Prescription</b></a>
 
