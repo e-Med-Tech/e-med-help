@@ -74,7 +74,7 @@
 <main>
     <div class="container" style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
         <div class="row">
-            <form:form role="form" action="${pageContext.request.contextPath}/physician/file"
+            <form:form role="form" action="${pageContext.request.contextPath}/physician/prescription"
                        method="post">
                 <input type="text" name="userId" value="${user.UId}" hidden/>
                 <div class="form-group">
@@ -84,9 +84,9 @@
                 </div>
                 <div class="form-group">
                     <label for="patient-name">Patient's Name:</label>
-                    <select id="patient-name">
+                    <select id="patient-name" name="patient">
                         <c:forEach items="${patients}" var="name">
-                            <option name="text" value="${name.id}"><c:out value="${name.name}"/></option>
+                            <option value="${name.id}"><c:out value="${name.name}"/></option>
                         </c:forEach>
                     </select>
                 </div>
