@@ -25,7 +25,8 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
     <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
-
+    <script src='https://cdn.scaledrone.com/scaledrone.min.js' type='text/javascript'></script>
+        <script src="/js/physician.js" type="text/javascript"></script>
 
     <!-- =======================================================
       Theme Name: eNno
@@ -66,31 +67,58 @@
 </nav>
 
 
-<div class="container">
-    <div class="row">
+<div class="container" >
+            <div class="row">
 
-        <div>
+                <div>
 
-            <div class="videobox">Video box</div>
-
-        </div>
-    </div>
+                    <video id="localVideo" autoplay muted width="320" height="240"></video>
+                    <video id="remoteVideo" autoplay></video>
 
 
-    <div class="container">
-        <div class="row">
-
-            <div>
-                <div class="ficon features">
-                    <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
-
-                    <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send
-                        Prescription</b></a>
                 </div>
             </div>
+
+            
+                <div class="row">
+
+                    <div>
+                        <div class="ficon features">
+                            <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
+
+                            <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send Prescription</b></a>
+
+                            <a href="#" class="btn btn-default" role="button" id="phStart" onclick="physicianStart()"><b> connect</b></a>
+
+                            <a href="#" class="btn btn-default" role="button" id="phClose" onclick="physicianClose()"><b>Close video</b></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-    </div>
-</div>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <div class="ficon features">
+                        <a href="#" class="btn btn-danger" role="button" id="changeStatus" onclick="change()">Offline</a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>                
+        <div class="container">
+            <div class="row">
+                <div style="text-align:center;color:green;font-size:20px;" id="messageText">
+                    There's a patient waiting in the Conference Room. Please Connect
+                </div>
+
+            </div>
+        </div>
+
 
 
 <footer>
