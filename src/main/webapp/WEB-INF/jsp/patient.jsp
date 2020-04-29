@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link href="${pageContext.request.contextPath}/css/chosen.min.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/patient.css" type="text/css" rel="stylesheet">
-
+     <script src='https://cdn.scaledrone.com/scaledrone.min.js' type='text/javascript'></script>
 
     <!-- =======================================================
 Theme Name: eNno
@@ -118,7 +118,11 @@ Author URL: https://bootstrapmade.com
                 </div>
 
             </ul>
+                    <div class="ficon features">
+                        <a href="#" class="btn btn-default" role="button" id="paStart" onclick="patientStart()"><b>Call</b></a>
 
+                        <a href="#" class="btn btn-default" role="button" id="paClose" onclick="patientClose()"><b>Close video</b></a>
+                    </div>
 
             <!-- TODO Modal -->
             <div class="modal fade" id="medicalInput" tabindex="-1" aria-hidden="true">
@@ -166,12 +170,12 @@ Author URL: https://bootstrapmade.com
 
 
         </div>
-        <div class="col-md-9">
+       <div class="col-md-9">
 
 
-            <canvas id="canvas" style="width: 100%; height: 400px;" class="border border-dark w-100 bg-info">
-                <!--TODO Video Call-->
-            </canvas>
+                    <video id="localVideo" autoplay muted width="220" height="140"></video>
+                    <video id="remoteVideo" autoplay></video>
+                </div>
         </div>
     </div>
 
