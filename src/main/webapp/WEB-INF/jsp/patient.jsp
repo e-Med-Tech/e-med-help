@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link href="${pageContext.request.contextPath}/css/chosen.min.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/patient.css" type="text/css" rel="stylesheet">
-     <script src='https://cdn.scaledrone.com/scaledrone.min.js' type='text/javascript'></script>
+    <script src='https://cdn.scaledrone.com/scaledrone.min.js' type='text/javascript'></script>
 
     <!-- =======================================================
 Theme Name: eNno
@@ -118,11 +118,12 @@ Author URL: https://bootstrapmade.com
                 </div>
 
             </ul>
-                    <div class="ficon features">
-                        <a href="#" class="btn btn-default" role="button" id="paStart" onclick="patientStart()"><b>Call</b></a>
+            <div class="ficon features">
+                <a href="#" class="btn btn-default" role="button" id="paStart" onclick="patientStart()"><b>Call</b></a>
 
-                        <a href="#" class="btn btn-default" role="button" id="paClose" onclick="patientClose()"><b>Close video</b></a>
-                    </div>
+                <a href="#" class="btn btn-default" role="button" id="paClose" onclick="patientClose()"><b>Close
+                    video</b></a>
+            </div>
 
             <!-- TODO Modal -->
             <div class="modal fade" id="medicalInput" tabindex="-1" aria-hidden="true">
@@ -170,227 +171,246 @@ Author URL: https://bootstrapmade.com
 
 
         </div>
-       <div class="col-md-9">
+        <div class="col-md-9">
 
 
-                    <video id="localVideo" autoplay muted width="220" height="140"></video>
-                    <video id="remoteVideo" autoplay></video>
-                </div>
+            <video id="localVideo" autoplay muted width="220" height="140"></video>
+            <video id="remoteVideo" autoplay></video>
         </div>
     </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
 
-    <div class="container" id="symptomChecker">
-        <div class="row" style="justify-content: center; display: flex;">
-            <div class="col-md-6 bg-light p-4 rounded mt-5">
-                <h5 class="text-light text-center bg-success mb-2 p-2 rounded lead" id="result">Hello World!</h5>
-                <div class="progress mb-3 rounded"
-                     style="height: 40px; justify-content: center; align-content: center;">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 15%;" id="progressBar">
-                        <b class="lead" id="progressText">Step-1</b>
-                    </div>
-                </div>
-                <form action="" method="post" id="form-data"></form>
-                <div id="tab-1">
-                    <h4 class="text-center bg-primary p-1 rounded text-light">Sex & Age</h4>
-                    <div class="form-group">
-                        <div>
-                            <label>Sex:</label>
+
+            <div class="container" id="symptomChecker">
+                <div class="row" style="justify-content: center; display: flex;">
+                    <div class="col-md-6 bg-light p-4 rounded mt-5">
+                        <h5 class="text-light text-center bg-success mb-2 p-2 rounded lead" id="result">Hello
+                            World!</h5>
+                        <div class="progress mb-3 rounded"
+                             style="height: 40px; justify-content: center; align-content: center;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 15%;" id="progressBar">
+                                <b class="lead" id="progressText">Step-1</b>
+                            </div>
                         </div>
+                        <form action="" method="post" id="form-data"></form>
+                        <div id="tab-1">
+                            <h4 class="text-center bg-primary p-1 rounded text-light">Sex & Age</h4>
+                            <div class="form-group">
+                                <div>
+                                    <label>Sex:</label>
+                                </div>
 
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons"
-                             style="display: flex; justify-content: space-around; align-content: center;">
-                            <ul>
-                                <li class="btn btn-light active btn-lg-01" style="margin-right: 40px;">
-                                    <input type="radio" name="gender" id="male" autocomplete="off" value="male" checked
-                                           class="gender"/>
-                                    <img src="${pageContext.request.contextPath}/img/male-solid.svg" alt="Male">
-                                </li>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons"
+                                     style="display: flex; justify-content: space-around; align-content: center;">
+                                    <ul>
+                                        <li class="btn btn-light active btn-lg-01" style="margin-right: 40px;">
+                                            <input type="radio" name="gender" id="male" autocomplete="off" value="male"
+                                                   checked
+                                                   class="gender"/>
+                                            <img src="${pageContext.request.contextPath}/img/male-solid.svg" alt="Male">
+                                        </li>
 
-                                <li class="btn btn-light btn-lg-01">
-                                    <input type="radio" name="gender" id="female" autocomplete="off" value="female"
-                                           class="gender"/>
-                                    <img src="${pageContext.request.contextPath}/img/female-solid.svg" alt="Female">
-                                </li>
+                                        <li class="btn btn-light btn-lg-01">
+                                            <input type="radio" name="gender" id="female" autocomplete="off"
+                                                   value="female"
+                                                   class="gender"/>
+                                            <img src="${pageContext.request.contextPath}/img/female-solid.svg"
+                                                 alt="Female">
+                                        </li>
 
-                            </ul>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age:</label>
+                                <input id="age" class="form-control" type="number" name="age" value="30">
+                            </div>
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
+                                <a class="btn btn-primary" id="next-1">Next</a>
+                            </div>
                         </div>
+                        <div id="tab-2">
+                            <h4 class="text-center bg-primary p-1 rounded text-light">Demographics & History</h4>
 
 
-                    </div>
-                    <div class="form-group">
-                        <label for="age">Age:</label>
-                        <input id="age" class="form-control" type="number" name="age" value="30">
-                    </div>
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
-                        <a class="btn btn-primary" id="next-1">Next</a>
-                    </div>
-                </div>
-                <div id="tab-2">
-                    <h4 class="text-center bg-primary p-1 rounded text-light">Demographics & History</h4>
+                            <div class="form-check m-2">
+                                <input id="p_6" class="form-check-input risk" type="checkbox" name="" value="p_6">
+                                <label for="p_6" class="form-check-label font-weight-bolder">BMI below 19</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_7" class="form-check-input risk" type="checkbox" name="" value="p_7">
+                                <label for="p_7" class="form-check-label font-weight-bolder">BMI over 30</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_8" class="form-check-input risk" type="checkbox" name="" value="p_8">
+                                <label for="p_8" class="form-check-label font-weight-bolder">Hypertension</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_9" class="form-check-input risk" type="checkbox" name="" value="p_9">
+                                <label for="p_9" class="form-check-label font-weight-bolder">High cholesterol</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_10" class="form-check-input risk" type="checkbox" name="" value="p_10">
+                                <label for="p_10" class="form-check-label font-weight-bolder">Smoking</label>
+                            </div>
 
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
+                                <a class="btn btn-primary" id="prev-2">Previous</a>
+                                <a class="btn btn-primary" id="next-2">Next</a>
+                            </div>
+                        </div>
+                        <div id="tab-3">
+                            <h4 class="text-center bg-primary p-1 rounded text-light">Geographical location</h4>
 
-                    <div class="form-check m-2">
-                        <input id="p_6" class="form-check-input risk" type="checkbox" name="" value="p_6">
-                        <label for="p_6" class="form-check-label font-weight-bolder">BMI below 19</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_7" class="form-check-input risk" type="checkbox" name="" value="p_7">
-                        <label for="p_7" class="form-check-label font-weight-bolder">BMI over 30</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_8" class="form-check-input risk" type="checkbox" name="" value="p_8">
-                        <label for="p_8" class="form-check-label font-weight-bolder">Hypertension</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_9" class="form-check-input risk" type="checkbox" name="" value="p_9">
-                        <label for="p_9" class="form-check-label font-weight-bolder">High cholesterol</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_10" class="form-check-input risk" type="checkbox" name="" value="p_10">
-                        <label for="p_10" class="form-check-label font-weight-bolder">Smoking</label>
-                    </div>
-
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
-                        <a class="btn btn-primary" id="prev-2">Previous</a>
-                        <a class="btn btn-primary" id="next-2">Next</a>
-                    </div>
-                </div>
-                <div id="tab-3">
-                    <h4 class="text-center bg-primary p-1 rounded text-light">Geographical location</h4>
-
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_13"><span
-                                style="margin-left: 30px;">North
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_13"><span
+                                        style="margin-left: 30px;">North
                                         America without Mexico</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_14"><span
-                                style="margin-left: 30px;">Latin
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_14"><span
+                                        style="margin-left: 30px;">Latin
                                         and South America</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio" value="p_15"
-                                                                 checked><span style="margin-left: 30px;">Europe</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_16"><span
-                                style="margin-left: 30px;">Northern Africa</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_17"><span
-                                style="margin-left: 30px;">Central
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_15"
+                                                                         checked><span
+                                        style="margin-left: 30px;">Europe</span></label>
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_16"><span
+                                        style="margin-left: 30px;">Northern Africa</span></label>
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_17"><span
+                                        style="margin-left: 30px;">Central
                                         Africa</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_18"><span
-                                style="margin-left: 30px;">Southern Africa</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_19"><span
-                                style="margin-left: 30px;">Australia and Oceania</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_20"><span
-                                style="margin-left: 30px;">Russia,
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_18"><span
+                                        style="margin-left: 30px;">Southern Africa</span></label>
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_19"><span
+                                        style="margin-left: 30px;">Australia and Oceania</span></label>
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_20"><span
+                                        style="margin-left: 30px;">Russia,
                                         Kazakhstan and Mongolia</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
-                                                                 value="p_21"><span
-                                style="margin-left: 30px;">Middle
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_21"><span
+                                        style="margin-left: 30px;">Middle
                                         East</span></label>
-                    </div>
-                    <div class="radio">
-                        <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio" value="p_236"><span
-                                style="margin-left: 30px;">Asia
+                            </div>
+                            <div class="radio">
+                                <label class="font-weight-bolder"><input class="geo" type="radio" name="optradio"
+                                                                         value="p_236"><span
+                                        style="margin-left: 30px;">Asia
                                         excluding Middle East, Russia, Kazakhstan and Mongolia</span></label>
-                    </div>
+                            </div>
 
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
-                        <a class="btn btn-primary" id="prev-3">Previous</a>
-                        <a class="btn btn-primary" id="next-3">Next</a>
-                    </div>
-                </div>
-                <div id="tab-4">
-                    <h4 class="text-center bg-primary p-1 rounded text-light">Symptoms</h4>
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
+                                <a class="btn btn-primary" id="prev-3">Previous</a>
+                                <a class="btn btn-primary" id="next-3">Next</a>
+                            </div>
+                        </div>
+                        <div id="tab-4">
+                            <h4 class="text-center bg-primary p-1 rounded text-light">Symptoms</h4>
 
-                    <div class="form-check m-2">
-                        <input id="p_147" class="form-check-input risk" type="checkbox" name="" value="p_147">
-                        <label for="p_147" class="form-check-label font-weight-bolder">Physical injury</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_144" class="form-check-input risk" type="checkbox" name="" value="p_144">
-                        <label for="p_144" class="form-check-label font-weight-bolder">Abdominal trauma</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_145" class="form-check-input risk" type="checkbox" name="" value="p_145">
-                        <label for="p_145" class="form-check-label font-weight-bolder">Acceleration-deceleration
-                            injury</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_146" class="form-check-input risk" type="checkbox" name="" value="p_146">
-                        <label for="p_146" class="form-check-label font-weight-bolder">Back injury</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_74" class="form-check-input risk" type="checkbox" name="" value="p_74">
-                        <label for="p_74" class="form-check-label font-weight-bolder">Craniocerebral trauma</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_136" class="form-check-input risk" type="checkbox" name="" value="p_136">
-                        <label for="p_136" class="form-check-label font-weight-bolder">Skeletal trauma, chest</label>
-                    </div>
-                    <div class="form-check m-2">
-                        <input id="p_53" class="form-check-input risk" type="checkbox" name="" value="p_53">
-                        <label for="p_53" class="form-check-label font-weight-bolder">Skeletal trauma, limb</label>
-                    </div>
+                            <div class="form-check m-2">
+                                <input id="p_147" class="form-check-input risk" type="checkbox" name="" value="p_147">
+                                <label for="p_147" class="form-check-label font-weight-bolder">Physical injury</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_144" class="form-check-input risk" type="checkbox" name="" value="p_144">
+                                <label for="p_144" class="form-check-label font-weight-bolder">Abdominal trauma</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_145" class="form-check-input risk" type="checkbox" name="" value="p_145">
+                                <label for="p_145" class="form-check-label font-weight-bolder">Acceleration-deceleration
+                                    injury</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_146" class="form-check-input risk" type="checkbox" name="" value="p_146">
+                                <label for="p_146" class="form-check-label font-weight-bolder">Back injury</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_74" class="form-check-input risk" type="checkbox" name="" value="p_74">
+                                <label for="p_74" class="form-check-label font-weight-bolder">Craniocerebral
+                                    trauma</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_136" class="form-check-input risk" type="checkbox" name="" value="p_136">
+                                <label for="p_136" class="form-check-label font-weight-bolder">Skeletal trauma,
+                                    chest</label>
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="p_53" class="form-check-input risk" type="checkbox" name="" value="p_53">
+                                <label for="p_53" class="form-check-label font-weight-bolder">Skeletal trauma,
+                                    limb</label>
+                            </div>
 
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
-                        <a class="btn btn-primary" id="prev-4">Previous</a>
-                        <a class="btn btn-primary" id="next-4">Next</a>
-                    </div>
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
+                                <a class="btn btn-primary" id="prev-4">Previous</a>
+                                <a class="btn btn-primary" id="next-4">Next</a>
+                            </div>
 
-                </div>
-                <div id="tab-5">
-                    <h4 class="text-center bg-primary p-1 rounded text-light">Symptoms</h4>
-                    <div class="form-group">
-                        <label for="initialSymnptoms">Primary Symptoms</label>
-                        <select id="initialSymnptoms" multiple name="initialSymnptoms" class="form-control"></select>
-                    </div>
-
-
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
-                        <a class="btn btn-primary" id="prev-5">Previous</a>
-                        <a class="btn btn-primary" id="next-5">Next</a>
-                    </div>
-                </div>
-                <div id="tab-6">
-                    <h4 class="text-center bg-primary p-1 rounded text-light" id="resultTitle">Questions</h4>
-                    <div class="form-group" id="questions">
-                        <!-- fill by js -->
-
-                    </div>
-
-                    <div class="form-group d-flex" style="justify-content: space-between; display: flex;" id="lastBtns">
-                        <a class="btn btn-primary" id="prev-6">Previous</a>
-                        <a class="btn btn-primary" id="next-6">Next</a>
-                    </div>
+                        </div>
+                        <div id="tab-5">
+                            <h4 class="text-center bg-primary p-1 rounded text-light">Symptoms</h4>
+                            <div class="form-group">
+                                <label for="initialSymnptoms">Primary Symptoms</label>
+                                <select id="initialSymnptoms" multiple name="initialSymnptoms"
+                                        class="form-control"></select>
+                            </div>
 
 
-                    <div class="form-group d-flex" style="justify-content: center; display: flex;" id="startBtn">
-                        <a class="btn btn-primary" id="prev-7">Start</a>
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;">
+                                <a class="btn btn-primary" id="prev-5">Previous</a>
+                                <a class="btn btn-primary" id="next-5">Next</a>
+                            </div>
+                        </div>
+                        <div id="tab-6">
+                            <h4 class="text-center bg-primary p-1 rounded text-light" id="resultTitle">Questions</h4>
+                            <div class="form-group" id="questions">
+                                <!-- fill by js -->
+
+                            </div>
+
+                            <div class="form-group d-flex" style="justify-content: space-between; display: flex;"
+                                 id="lastBtns">
+                                <a class="btn btn-primary" id="prev-6">Previous</a>
+                                <a class="btn btn-primary" id="next-6">Next</a>
+                            </div>
+
+
+                            <div class="form-group d-flex" style="justify-content: center; display: flex;"
+                                 id="startBtn">
+                                <a class="btn btn-primary" id="prev-7">Start</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <hr/>
 
