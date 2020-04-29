@@ -1,9 +1,12 @@
 package com.example.e_med_help.services;
 
 
+import com.example.e_med_help.models.Role;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.RolesRepository;
 import com.example.e_med_help.repositiories.UsersRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -38,6 +41,4 @@ public class UsersServiceImplementation implements UsersServiceInterface{
         }
         return null;
     }
-
-    
 }

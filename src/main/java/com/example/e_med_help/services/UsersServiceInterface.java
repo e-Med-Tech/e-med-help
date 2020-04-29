@@ -13,6 +13,4 @@ public interface UsersServiceInterface {
 
     User getUserById(Integer id);
 
-    List<User> getAllByRole(Role role);
-    
 }
