@@ -91,6 +91,14 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="pharmacy-name">Pharmacist's Name:</label>
+                    <select id="pharmacy-name" name="pharmacy">
+                        <c:forEach items="${pharmacies}" var="name">
+                            <option value="${name.id}"><c:out value="${name.name}"/></option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="prescription-text">Write Prescription:</label>
                     <textarea id="prescription-text" class="form-control" type="text" name="text"
                               rows="15"></textarea>
