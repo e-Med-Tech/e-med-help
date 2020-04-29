@@ -12,7 +12,6 @@
     <title>Medical History</title>
 
     <!-- Bootstrap -->
-
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
@@ -45,13 +44,10 @@
             <div class="navbar-collapse collapse">
                 <div class="menu">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a>
-                        </li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                         <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
                             &nbsp; ${user.UName} ${user.USurname}</a></li>
+                        <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                            Logout</a></li>
                     </ul>
                 </div>
             </div>
