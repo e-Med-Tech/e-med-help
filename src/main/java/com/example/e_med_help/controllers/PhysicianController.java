@@ -1,5 +1,6 @@
 package com.example.e_med_help.controllers;
 
+import com.example.e_med_help.dtos.MockUsers;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +28,28 @@ public class PhysicianController {
 
     @GetMapping("/prescription")
     public String showPrescription(Model model) {
+//        List<String> patients = new ArrayList<>();
+//        String temp;
+//        List<User> users = usersRepository.findAll();
+//        for (User u : users) {
+//            temp=u.getUSurname()+" "+u.getUSurname();
+//            System.out.println(temp);
+//            patients.add(temp);
+//        }
+//        model.addAttribute("patients",patients);
         return "prescription";
     }
 
     @ModelAttribute("patients")
-    public List<String> getListOfRoles() {
-        List<String> patients = new ArrayList<>();
+    public List<MockUsers> getListOfRoles() {
+        List<MockUsers> patients = new ArrayList<>();
         String temp;
         List<User> users = usersRepository.findAll();
         for (User u : users) {
             temp=u.getUSurname()+" "+u.getUSurname();
             System.out.println(temp);
-            patients.add(temp);
+            MockUsers mock = new MockUsers(u.getUId(),temp);
+            patients.add(mock);
         }
         return patients;
     }
