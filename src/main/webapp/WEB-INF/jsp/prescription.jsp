@@ -4,8 +4,9 @@
     Author     : Natasa
 --%>
 
-<<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -38,85 +39,71 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <span>e-Med-Help</span>
-            </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="menu">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
-                    <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
-                        &nbsp; ${user.UName} ${user.USurname}</a></li>
-                </ul>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target=".navbar-collapse.collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span>e-Med-Help</span>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="menu">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a>
+                        </li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
+                            &nbsp; ${user.UName} ${user.USurname}</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </nav>
+</header>
+<main>
+    <div class="container" style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
+        <div class="row">
+            <form:form role="form" action="${pageContext.request.contextPath}/physician/file"
+                       method="post">
+                <input type="text" name="userId" value="${user.UId}" hidden/>
+                <div class="form-group">
+                    <label for="doctor-name">Physician's Name:</label>
+                    <input id="doctor-name" class="form-control" type="text" name="doctor"
+                           value="${user.UName} ${user.USurname}"/>
+                </div>
+                <div class="form-group">
+                    <label for="patient-name">Patient's Name:</label>
+                    <select id="patient-name">
+                        <c:forEach items="${patients}" var="name">
+                            <option name="text" value="${name.id}"><c:out value="${name.name}"/></option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prescription-text">Write Prescription:</label>
+                    <textarea id="prescription-text" class="form-control" type="text" name="text"
+                              rows="15"></textarea>
+                </div>
+                <div class="d-flex justify-content-between" style="justify-content: space-between; display: flex;">
+                    <input name="reset" id="reset-btn" class="btn btn-primary" type="reset" value="Reset"/>
+                    <input name="submit" id="submit-btn" class="btn btn-primary"
+                           type="submit" value="Submit"/>
+                </div>
+            </form:form>
+        </div>
     </div>
-</nav>
-
-
-<div class="container">
-<%--    <div class="row">--%>
-<%--        <div class="col">--%>
-<%--            --%>
-<%--        </div>--%>
-<%--        <div class="col">--%>
-<%--            --%>
-<%--        </div>--%>
-<%--        <div class="col">--%>
-<%--            --%>
-<%--        </div>--%>
-
-    <form:form role="form" action="${pageContext.request.contextPath}/physician/file" modelAttribute="patients"
-               method="post">
-        <input type="text" name="username" value="${user.UName}" />
-        <input type="text" name="usersurname" value="${user.USurname}" />
-        <input type="text" name="userId" value="${user.UId}" />
-
-        <div class="form-group">
-            <label for="doctor-name">Physician's Name:</label>
-            <input id="doctor-name" class="form-control" type="text" name="doctor" value="${user.UName} ${user.USurname}"/>
-        </div>
-        <div class="form-group">
-            <label for="patient-name">Patient's Name:</label>
-            <input id="patient-name" class="form-control" type="text" name="patient" placeholder="Give patient's name"/>
-            <form:select multiple="false" path="empty">
-                <form:options items="${patients}" itemValue="${patients}" itemLabel="${patients}" name="text"/>
-            </form:select>
-        </div>
-        <div class="form-group">
-            <label for="prescription-text">Write:</label>
-            <textarea id="prescription-text" class="form-control" type="text" name="text"
-                      rows="15"></textarea>
-        </div>
-
-        <div class="d-flex justify-items-between">
-            <input name="submit" id="submit-btn" class="btn btn-primary"
-                   type="submit" value="Submit"/>
-            <input name="reset" id="reset-btn" class="btn btn-primary" type="reset" value="Reset"/>
-        </div>
-    </form:form>
-
-
-
-
-<%--    </div>--%>
-</div>
-
-
+</main>
 <footer>
     <div class="inner-footer">
         <div class="container">
@@ -154,30 +141,32 @@
         <div class="container">
             <div class="row">
                 <div class="copyright">
-                            &copy; eNno Theme. All Rights Reserved
-                            <div class="credits">
-                                <!--
-                                  All the links in the footer should remain intact. 
-                                  You can delete the links only if you purchased the pro version.
-                                  Licensing information: https://bootstrapmade.com/license/
-                                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
-                                -->
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                            </div>
-                        </div>
+                    &copy; eNno Theme. All Rights Reserved
+                    <div class="credits">
+                        <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
+                        -->
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <ul class="social-network">
-                            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ul class="social-network">
+                    <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a>
+                    </li>
+                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
 
