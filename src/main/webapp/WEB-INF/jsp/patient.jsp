@@ -1,17 +1,11 @@
-<%-- 
-    Document   : patient
-    Created on : Apr 20, 2020, 4:24:44 PM
-    Author     : gratsiella
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Patient page</title>
+    <title>e-Med-Help Patient page</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -58,13 +52,11 @@ Author URL: https://bootstrapmade.com
         <div class="navbar-collapse collapse">
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a>
-                    </li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
+
                     <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
                         &nbsp; ${user.UName} ${user.USurname}</a></li>
+                    <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                    Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -119,10 +111,10 @@ Author URL: https://bootstrapmade.com
 
             </ul>
             <div class="ficon features">
-                <a href="#" class="btn btn-default" role="button" id="paStart" onclick="patientStart()"><b>Call</b></a>
+                <a href="#" class="btn btn-default" role="button" id="paStart" onclick="patientStart()"><b><i style="color: #0f0f0f" class="fa fa-video"></i>&nbsp;Call</b></a>
 
-                <a href="#" class="btn btn-default" role="button" id="paClose" onclick="patientClose()"><b>Close
-                    video</b></a>
+                <a href="#" class="btn btn-default" role="button" id="paClose" onclick="patientClose()"><i style="color: red" class="fa fa-stop"></i><b>&nbsp;Terminate
+                    call</b></a>
             </div>
 
             <!-- TODO Modal -->
@@ -171,6 +163,8 @@ Author URL: https://bootstrapmade.com
 
 
         </div>
+
+
         <div class="col-md-9">
 
 

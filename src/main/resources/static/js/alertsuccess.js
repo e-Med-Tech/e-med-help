@@ -1,6 +1,6 @@
 
 // On click of Submit buttons, the required elements of the form are checked.
-// If they are filled out, a message box pops out.On Press of OK, the page is reloaded.
+// If they are filled out, a message box pops out.On Press of OK, the form is submitted.
 
 $(document).ready(
     function () {
@@ -23,3 +23,6 @@ $(document).ready(
 
         });
     });
+
+
+

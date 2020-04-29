@@ -1,10 +1,4 @@
-<%-- 
-    Document   : login
-    Created on : Apr 17, 2020, 9:22:05 PM
-    Author     : Natasa
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -13,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login page</title>
+    <title>e-Med-Help Login page</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">

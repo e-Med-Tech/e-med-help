@@ -1,9 +1,3 @@
-<%-- 
-    Document   : physician
-    Created on : Apr 18, 2020, 8:45:19 PM
-    Author     : Natasa
---%>
-
 < <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <!DOCTYPE html>
     <html>
@@ -12,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
         <meta name="description" content="">
 
-        <title>Physician page</title>
+        <title>e-Med-Help Physician page</title>
 
         <!-- Bootstrap -->
 
@@ -55,21 +49,20 @@
                 <div class="navbar-collapse collapse">
                     <div class="menu">
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                            <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign
-                                    Up</a></li>
-                            <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a>
-                            </li>
-                            <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a>
-                            </li>
                             <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
-                                    &nbsp; ${user.UName} ${user.USurname}</a></li>
+                                &nbsp; ${user.UName} ${user.USurname}</a></li>
+                            <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                                Logout</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
 
+        <br>
+        <br>
+        <br>
+        <br>
 
         <div class="container">
             <div class="row">
@@ -94,11 +87,11 @@
 
                         <a href="${pageContext.request.contextPath}/physician/prescription" class="btn btn-default" role="button"><b> Send Prescription</b></a>
 
-                        <a href="#" class="btn btn-default" role="button" id="phStart" onclick="physicianStart()"><b>
-                                connect</b></a>
+                        <a href="#" class="btn btn-default" role="button" id="phStart" onclick="physicianStart()">
+                            <i style="color: #0f0f0f" class="fa fa-video-camera"></i><b>&nbsp; Accept call</b></a>
 
-                        <a href="#" class="btn btn-default" role="button" id="phClose"
-                            onclick="physicianClose()"><b>Close video</b></a>
+                        <a href="#" class="btn btn-default" role="button" id="phClose" onclick="physicianClose()">
+                            <i style="color: red" class="fa fa-stop"></i><b>&nbsp; Terminate call</b></a>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,4 @@
-<%-- 
-    Document   : contact
-    Created on : Apr 20, 2020, 11:08:41 PM
-    Author     : Natasa
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
