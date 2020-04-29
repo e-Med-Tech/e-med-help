@@ -28,15 +28,6 @@ public class PhysicianController {
 
     @GetMapping("/prescription")
     public String showPrescription(Model model) {
-//        List<String> patients = new ArrayList<>();
-//        String temp;
-//        List<User> users = usersRepository.findAll();
-//        for (User u : users) {
-//            temp=u.getUSurname()+" "+u.getUSurname();
-//            System.out.println(temp);
-//            patients.add(temp);
-//        }
-//        model.addAttribute("patients",patients);
         return "prescription";
     }
 
