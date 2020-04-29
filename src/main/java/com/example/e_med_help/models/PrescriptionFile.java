@@ -32,6 +32,8 @@ public class PrescriptionFile implements Serializable {
     @Lob
     @Column(name = "F_DATA")
     private byte[] fData;
+    @Column(name = "F_AMOUNT")
+    private Integer fAmount;
     @JoinColumn(name = "F_P_ID", referencedColumnName = "U_ID")
     @ManyToOne(optional = false)
     private User fPId;
@@ -101,6 +103,14 @@ public class PrescriptionFile implements Serializable {
 
     public void setfFId(User fFId) {
         this.fFId = fFId;
+    }
+
+    public Integer getfAmount() {
+        return fAmount;
+    }
+
+    public void setfAmount(Integer fAmount) {
+        this.fAmount = fAmount;
     }
 
     @Override
