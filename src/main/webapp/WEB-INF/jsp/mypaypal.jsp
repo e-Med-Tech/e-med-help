@@ -1,15 +1,19 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: gkalf
+  Date: 30/04/20
+  Time: 1:48 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
-    <title>Medical History</title>
+    <title>e-Med-Help Paypal page</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -21,9 +25,9 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
     <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/paypal.css" rel="stylesheet">
 
 </head>
-
 <body>
 <header>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -54,41 +58,39 @@
         </div>
     </nav>
 </header>
-<main>
-    <div class="container" style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
-        <div class="row">
-            <form role="form">
+<br><br><br>
+<div class="container" >
 
-                <div class="form-group">
-                    <label for="patient-name">Patient's Name:</label>
-                    <select id="patient-name" name="patient">
-                        <c:forEach items="${patients}" var="name">
-                            <option value="${name.id}"><c:out value="${name.name}"/></option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="pharmacy-name">Pharmacist's Name:</label>
-                    <select id="pharmacy-name" name="pharmacy">
-                        <c:forEach items="${pharmacies}" var="name">
-                            <option value="${name.id}"><c:out value="${name.name}"/></option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="prescription-text">Write Prescription:</label>
-                    <textarea id="prescription-text" class="form-control" type="text" name="text"
-                              rows="15"></textarea>
-                </div>
-                <div class="d-flex justify-content-between" style="justify-content: space-between; display: flex;">
-                    <input name="reset" id="reset-btn" class="btn btn-primary" type="reset" value="Reset"/>
-                    <input name="submit" id="submit-btn" class="btn btn-primary"
-                           type="submit" value="Submit"/>
-                </div>
-            </form>
-        </div>
+    <div class="paypal">
+        <div id="paypal-button-container"></div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=EUR" data-sdk-integration-source="button-factory"></script>
+        <script>
+            paypal.Buttons({
+                style: {
+                    shape: 'pill',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'checkout',
+
+                },
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '9'
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                    });
+                }
+            }).render('#paypal-button-container');
+        </script>
     </div>
-</main>
+</div>
 <footer>
     <div class="inner-footer">
         <div class="container">
@@ -174,4 +176,3 @@
 
 </body>
 </html>
-
