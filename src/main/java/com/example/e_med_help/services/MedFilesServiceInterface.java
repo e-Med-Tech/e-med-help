@@ -9,4 +9,5 @@ public interface MedFilesServiceInterface {
     List<MedFile> getAllMedFiles();
     void insertMedFile(MedFile medFile);
     MedFile getMedFile(Integer id);
+    List<MedFile> getAllMedFilesById(int id);
 }
