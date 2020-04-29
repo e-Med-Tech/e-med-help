@@ -110,7 +110,6 @@
         <hr>
     </div>
 </div>
-</div>
 
 
 <footer>
