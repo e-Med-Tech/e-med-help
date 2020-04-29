@@ -38,7 +38,6 @@ public class PhysicianController {
         List<User> users = usersRepository.findAll();
         for (User u : users) {
             temp=u.getUSurname()+" "+u.getUSurname();
-            System.out.println(temp);
             MockUsers mock = new MockUsers(u.getUId(),temp);
             patients.add(mock);
         }
