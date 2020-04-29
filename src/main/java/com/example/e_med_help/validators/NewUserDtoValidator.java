@@ -29,7 +29,7 @@ public class NewUserDtoValidator implements Validator{
         String userPassword1 = user.getPassword1();
         String userPassword2 = user.getPassword2();
 
-//        name validation
+
         for (Character i : userName.toCharArray()) {
             if (!Character.isLetter(i)) {
                 errors.rejectValue("name", "name.not.all.chars");
@@ -41,7 +41,7 @@ public class NewUserDtoValidator implements Validator{
             errors.rejectValue("name", "name.not.valid.length");
         }
 
-//        surname validation
+
         for (Character i : userSurname.toCharArray()) {
             if (!Character.isLetter(i)) {
                 errors.rejectValue("surname", "surname.not.all.chars");
@@ -53,7 +53,6 @@ public class NewUserDtoValidator implements Validator{
             errors.rejectValue("surname", "surname.not.valid.length");
         }
 
-//        username validation
         if (userUsername.length() > 40 || userUsername.length() < 3) {
             errors.rejectValue("username", "username.not.valid.length");
         }
@@ -69,7 +68,6 @@ public class NewUserDtoValidator implements Validator{
             }
         }
 
-//        userPasswords validation
         if (userPassword1.length() > 40 || userPassword1.length() < 5) {
             errors.rejectValue("password1", "pass.not.valid.length");
         }

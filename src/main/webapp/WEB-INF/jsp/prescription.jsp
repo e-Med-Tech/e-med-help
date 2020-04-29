@@ -1,9 +1,3 @@
-<%-- 
-    Document   : physician
-    Created on : Apr 18, 2020, 8:45:19 PM
-    Author     : Natasa
---%>
-
 <
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="description" content="">
 
-    <title>Physician page</title>
+    <title>e-Med-Help Prescription page</title>
 
     <!-- Bootstrap -->
 
@@ -58,13 +52,10 @@
             <div class="navbar-collapse collapse">
                 <div class="menu">
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a>
-                        </li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                        <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                         <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
                             &nbsp; ${user.UName} ${user.USurname}</a></li>
+                        <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                            Logout</a></li>
                     </ul>
                 </div>
             </div>
