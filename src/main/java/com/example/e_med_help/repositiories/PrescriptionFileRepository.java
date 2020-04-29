@@ -6,11 +6,11 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PrescriptionFileRepository extends CrudRepository<PrescriptionFile, Integer> {
 
-    PrescriptionFile findByFDId(User user);
-
-    PrescriptionFile findByFPId(User user);
-
-    PrescriptionFile findByFFId(User user);
+//    PrescriptionFile findByFDId(User user);
+//
+//    PrescriptionFile findByFPId(User user);
+//
+//    PrescriptionFile findByFFId(User user);
 
 
 
