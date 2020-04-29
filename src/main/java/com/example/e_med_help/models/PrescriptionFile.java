@@ -14,9 +14,6 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = "PrescriptionFile.findAll", query = "SELECT p FROM PrescriptionFile p"),
         @NamedQuery(name = "PrescriptionFile.findByFId", query = "SELECT p FROM PrescriptionFile p WHERE p.fId = :fId"),
-        @NamedQuery(name = "PrescriptionFile.findByFDName", query = "SELECT p FROM PrescriptionFile p WHERE p.fDName = :fDName"),
-        @NamedQuery(name = "PrescriptionFile.findByFDSurname", query = "SELECT p FROM PrescriptionFile p WHERE p.fDSurname = :fDSurname"),
-        @NamedQuery(name = "PrescriptionFile.findByFPFullname", query = "SELECT p FROM PrescriptionFile p WHERE p.fPFullname = :fPFullname"),
         @NamedQuery(name = "PrescriptionFile.findByFFileName", query = "SELECT p FROM PrescriptionFile p WHERE p.fFileName = :fFileName")})
 public class PrescriptionFile implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -25,15 +22,6 @@ public class PrescriptionFile implements Serializable {
     @Basic(optional = false)
     @Column(name = "F_ID")
     private Integer fId;
-    @Size(max = 45)
-    @Column(name = "F_D_NAME")
-    private String fDName;
-    @Size(max = 45)
-    @Column(name = "F_D_SURNAME")
-    private String fDSurname;
-    @Size(max = 90)
-    @Column(name = "F_P_FULLNAME")
-    private String fPFullname;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
@@ -73,30 +61,6 @@ public class PrescriptionFile implements Serializable {
 
     public void setfId(Integer fId) {
         this.fId = fId;
-    }
-
-    public String getfDName() {
-        return fDName;
-    }
-
-    public void setfDName(String fDName) {
-        this.fDName = fDName;
-    }
-
-    public String getfDSurname() {
-        return fDSurname;
-    }
-
-    public void setfDSurname(String fDSurname) {
-        this.fDSurname = fDSurname;
-    }
-
-    public String getfPFullname() {
-        return fPFullname;
-    }
-
-    public void setfPFullname(String fPFullname) {
-        this.fPFullname = fPFullname;
     }
 
     public String getfFileName() {
@@ -145,9 +109,6 @@ public class PrescriptionFile implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         PrescriptionFile that = (PrescriptionFile) o;
         return Objects.equals(fId, that.fId) &&
-                Objects.equals(fDName, that.fDName) &&
-                Objects.equals(fDSurname, that.fDSurname) &&
-                Objects.equals(fPFullname, that.fPFullname) &&
                 Objects.equals(fFileName, that.fFileName) &&
                 Arrays.equals(fData, that.fData) &&
                 Objects.equals(fPId, that.fPId) &&
@@ -157,7 +118,7 @@ public class PrescriptionFile implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(fId, fDName, fDSurname, fPFullname, fFileName, fPId, fDId, fFId);
+        int result = Objects.hash(fId, fFileName, fPId, fDId, fFId);
         result = 31 * result + Arrays.hashCode(fData);
         return result;
     }
