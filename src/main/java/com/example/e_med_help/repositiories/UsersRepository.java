@@ -11,13 +11,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UsersRepository extends JpaRepository<User,Integer> {
+public interface UsersRepository extends CrudRepository<User,Integer> {
     
      User findByULoginname(String uLoginname);
-     
 
-    
-//    @Query("SELECT u FROM user u where u.uId<>?1 and u.uRoleId=?2")
-//    List<User> findCandidatesNotThePresent(int userId, Role role);
-    
 }
