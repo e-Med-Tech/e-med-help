@@ -20,19 +20,18 @@ public class PrescriptionFileServiceImplementation implements PrescriptionFileSe
 
     @Override
     public PrescriptionFile findPrescriptionFileByPatient(int id) {
-        User user = usersServiceImplementation.getUserById(id);
-        return fileRepository.findByFPId(user);
+        return null;
     }
 
     @Override
     public PrescriptionFile findPrescriptionFileByDoctor(int id) {
-        User user = usersServiceImplementation.getUserById(id);
-        return fileRepository.findByFDId(user);
+        return null;
     }
 
     @Override
     public PrescriptionFile findPrescriptionFileByFarmacy(int id) {
-        User user = usersServiceImplementation.getUserById(id);
-        return fileRepository.findByFFId(user);
+        return null;
     }
+
+
 }
