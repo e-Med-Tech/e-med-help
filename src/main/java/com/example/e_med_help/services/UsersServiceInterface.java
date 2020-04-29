@@ -10,7 +10,6 @@ public interface UsersServiceInterface {
 
     void insertUser(User user);
 
-  
     
     User getUserById(Integer id);
     
