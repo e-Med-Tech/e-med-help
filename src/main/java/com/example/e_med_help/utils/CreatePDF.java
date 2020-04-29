@@ -38,5 +38,27 @@ public class CreatePDF {
         return multipartFile;
     }
 
+    public MultipartFile createPrescriprionPDF(String doctor, String patient, String text) {
+
+       MultipartFile multipartFile02 = null;
+        try {
+            PDDocument pDDocument02 = PDDocument.load(new File("src/pdfs/prescription-form.pdf"));
+            PDAcroForm pDAcroForm02 = pDDocument02.getDocumentCatalog().getAcroForm();
+            pDAcroForm02.getField("doctor").setValue(doctor);
+            pDAcroForm02.getField("patient").setValue(patient);
+            pDAcroForm02.getField("text").setValue(text);
+            pDDocument02.save("src/pdfs/prescription-form-output.pdf");
+            pDDocument02.close();
+            System.out.println("pdf was created");
+            File file = new File("src/pdfs/prescription-form-output.pdf");
+            multipartFile02 = new MockMultipartFile(file.getName(), new FileInputStream(file));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("multipart Created");
+        return multipartFile02;
+    }
+
 
 }
