@@ -4,7 +4,8 @@
     Author     : Natasa
 --%>
 
-<<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,8 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target=".navbar-collapse.collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -84,8 +86,9 @@
                 <div class="ficon features">
                     <a href="#" class="btn btn-default" role="button"><b> View Patient's files</b></a>
 
-                    <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()"><b> Send
-                        Prescription</b></a>
+<%--                    <a href="#" class="btn btn-default" role="button" onclick="sendPrescription()">--%>
+                    <a href="${pageContext.request.contextPath}/physician/prescription" class="btn btn-default" role="button" >
+                        <b> Send Prescription</b></a>
                 </div>
             </div>
         </div>
@@ -130,30 +133,32 @@
         <div class="container">
             <div class="row">
                 <div class="copyright">
-                            &copy; eNno Theme. All Rights Reserved
-                            <div class="credits">
-                                <!--
-                                  All the links in the footer should remain intact. 
-                                  You can delete the links only if you purchased the pro version.
-                                  Licensing information: https://bootstrapmade.com/license/
-                                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
-                                -->
-                                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                            </div>
-                        </div>
+                    &copy; eNno Theme. All Rights Reserved
+                    <div class="credits">
+                        <!--
+                          All the links in the footer should remain intact.
+                          You can delete the links only if you purchased the pro version.
+                          Licensing information: https://bootstrapmade.com/license/
+                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
+                        -->
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <ul class="social-network">
-                            <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a></li>
-                            <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ul class="social-network">
+                    <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin fa-1x"></i></a></li>
+                    <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest fa-1x"></i></a>
+                    </li>
+                    <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus fa-1x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <a href="" class="scrollup"><i class="fa fa-chevron-up"></i></a>
 
