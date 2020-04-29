@@ -121,6 +121,7 @@ public class PrescriptionFile implements Serializable {
         return Objects.equals(fId, that.fId) &&
                 Objects.equals(fFileName, that.fFileName) &&
                 Arrays.equals(fData, that.fData) &&
+                Objects.equals(fAmount, that.fAmount) &&
                 Objects.equals(fPId, that.fPId) &&
                 Objects.equals(fDId, that.fDId) &&
                 Objects.equals(fFId, that.fFId);
@@ -128,7 +129,7 @@ public class PrescriptionFile implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(fId, fFileName, fPId, fDId, fFId);
+        int result = Objects.hash(fId, fFileName, fAmount, fPId, fDId, fFId);
         result = 31 * result + Arrays.hashCode(fData);
         return result;
     }
