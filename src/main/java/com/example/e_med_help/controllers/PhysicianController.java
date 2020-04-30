@@ -113,11 +113,9 @@ public class PhysicianController {
     }
 
     @ResponseBody
-    @RequestMapping(value="loadMedFilesByPatient/{id}",method=RequestMethod.GET)
+    @GetMapping("/loadMedFilesByPatient/{id}")
     public  String loadMedFilesByPatient(@PathVariable("id") int id){
-        System.out.println(medFilesService.findByCountry(id));
         Gson gson = new Gson();
-        System.out.println(gson.toJson(medFilesService.findByCountry(id)));
         return gson.toJson(medFilesService.findByCountry(id));
     }
 
