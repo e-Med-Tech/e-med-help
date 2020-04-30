@@ -5,10 +5,12 @@ import com.example.e_med_help.models.MedFile;
 import com.example.e_med_help.models.PrescriptionFile;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.UsersRepository;
+import com.example.e_med_help.services.MedFilesServiceInterface;
 import com.example.e_med_help.services.PrescriptionFileServiceInterface;
 import com.example.e_med_help.services.RolesServiceInterface;
 import com.example.e_med_help.services.UsersServiceInterface;
 import com.example.e_med_help.utils.CreatePDF;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,8 @@ public class PhysicianController {
     PrescriptionFileServiceInterface prescriptionFileServiceInterface;
     @Autowired
     RolesServiceInterface rolesService;
+    @Autowired
+    MedFilesServiceInterface medFilesService;
 
     @GetMapping("/home")
     public String goHome() {
@@ -104,7 +108,19 @@ public class PhysicianController {
 
     @GetMapping("/medical-history")
     public String showMed(Model model){
-        return  null;
+        model.addAttribute("patientsList", userService.getAllPatients());
+        return  "/medical-history";
     }
+
+    @ResponseBody
+    @RequestMapping(value="loadMedFilesByPatient/{id}",method=RequestMethod.GET)
+    public  String loadMedFilesByPatient(@PathVariable("id") int id){
+        System.out.println(medFilesService.findByCountry(id));
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(medFilesService.findByCountry(id)));
+        return gson.toJson(medFilesService.findByCountry(id));
+    }
+
+
 
 }

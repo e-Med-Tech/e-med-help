@@ -46,7 +46,8 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
                             &nbsp; ${user.UName} ${user.USurname}</a></li>
-                        <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/"> <i
+                                class="fa fa-sign-out"></i>
                             Logout</a></li>
                     </ul>
                 </div>
@@ -55,35 +56,30 @@
     </nav>
 </header>
 <main>
-    <div class="container" style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
+    <div class="container"
+         style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
         <div class="row">
             <form role="form">
-
                 <div class="form-group">
                     <label for="patient-name">Patient's Name:</label>
                     <select id="patient-name" name="patient">
-                        <c:forEach items="${patients}" var="name">
-                            <option value="${name.id}"><c:out value="${name.name}"/></option>
+                        <c:forEach items="${patientsList}" var="name">
+                            <option value="${name.UId}"><c:out value="${name.UName} ${name.USurname}"/></option>
                         </c:forEach>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="pharmacy-name">Pharmacist's Name:</label>
-                    <select id="pharmacy-name" name="pharmacy">
-                        <c:forEach items="${pharmacies}" var="name">
-                            <option value="${name.id}"><c:out value="${name.name}"/></option>
-                        </c:forEach>
+                    <label for="med-files">Medical Files:</label>
+                    <select id="med-files" name="med-files">
+                        <%--                        <c:forEach items="${patientsList}" var="name">--%>
+                        <%--                            <option value="${name.id}"><c:out value="${name.name}"/></option>--%>
+                        <%--                        </c:forEach>--%>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="prescription-text">Write Prescription:</label>
-                    <textarea id="prescription-text" class="form-control" type="text" name="text"
-                              rows="15"></textarea>
-                </div>
-                <div class="d-flex justify-content-between" style="justify-content: space-between; display: flex;">
-                    <input name="reset" id="reset-btn" class="btn btn-primary" type="reset" value="Reset"/>
+
+                <div class="d-flex justify-content-center" style="justify-content:center; display: flex;">
                     <input name="submit" id="submit-btn" class="btn btn-primary"
-                           type="submit" value="Submit"/>
+                           type="submit" value="Submit" href="${pageContext.request.contextPath}/physician/download/"/>
                 </div>
             </form>
         </div>
@@ -171,6 +167,38 @@
 <script src="${pageContext.request.contextPath}/js/functions.js"></script>
 <script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
 <script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#patient-name').on('change', function () {
+            const patientId = $(this).val();
+            console.log(patientId);
+            $.ajax({
+                type: 'GET',
+                url: '${pageContext.request.contextPath}/physician/loadMedFilesByPatient/' + patientId,
+                success: function (data) {
+                    console.log(data);
+                    const result = JSON.parse(data);
+                    console.log(result);
+                    let s = "";
+                    for (let i = 0; i < result.length; i++) {
+                        s += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                    }
+                    console.log(s);
+                    $('#med-files').html(s);
+                }
+            });
+        });
+        $('#med-files').on("change",function () {
+            const fileId = $(this).val();
+            console.log(fileId);
+            let btn = $('#submit-btn');
+            let link = "${pageContext.request.contextPath}/physician/download/"+fileId;
+            btn.html(link);
+            console.log(link);
+        });
+    });
+</script>
+
 
 </body>
 </html>

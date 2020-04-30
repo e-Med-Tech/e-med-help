@@ -1,5 +1,6 @@
 package com.example.e_med_help.services;
 
+import com.example.e_med_help.dtos.MedFileEntity;
 import com.example.e_med_help.models.MedFile;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.MedFilesRepository;
@@ -17,7 +18,7 @@ import java.util.Optional;
 public class MedFilesServiceImplementation implements MedFilesServiceInterface {
 
     @Autowired
-    MedFilesRepository medFilesRepository;
+    private MedFilesRepository medFilesRepository;
 
     @Autowired
     UsersServiceInterface usersServiceInterface;
@@ -41,5 +42,10 @@ public class MedFilesServiceImplementation implements MedFilesServiceInterface {
     public List<MedFile> getAllMedFilesById(int id) {
         User user = usersServiceInterface.getUserById(id);
         return (List<MedFile>) user.getMedFileCollection();
+    }
+
+    @Override
+    public List<MedFileEntity> findByCountry(int id) {
+        return medFilesRepository.findByCountry(id);
     }
 }

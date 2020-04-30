@@ -1,5 +1,6 @@
 package com.example.e_med_help.services;
 
+import com.example.e_med_help.dtos.PrescriptionEntity;
 import com.example.e_med_help.models.PrescriptionFile;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.PrescriptionFileRepository;
@@ -63,6 +64,16 @@ public class PrescriptionFileServiceImplementation implements PrescriptionFileSe
             }
         }
         return files;
+    }
+
+    @Override
+    public List<PrescriptionEntity> findByPharmacy(int id) {
+        return fileRepository.findByPharmacy(id);
+    }
+
+    @Override
+    public List<PrescriptionEntity> findByPatient(int id) {
+        return fileRepository.findByPatient(id);
     }
 
 
