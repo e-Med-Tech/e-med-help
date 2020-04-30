@@ -39,8 +39,6 @@ public class PharmacistController {
 
     @GetMapping(value = "/download/{id}")
     public ResponseEntity<Resource> downloadFile1(@PathVariable("id") Integer id) {
-        //1.  Φερτε το Entity με βαση το id
-        //2.  Επιστρεψτε το byte array του Entity
         PrescriptionFile f = presetFileService.findPresById(id);
         HttpHeaders header = new HttpHeaders();
         header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + f.getfFileName());
