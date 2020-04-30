@@ -3,6 +3,9 @@ package com.example.e_med_help.dtos;
 import java.io.Serializable;
 
 public class PrescriptionEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private String name;
 

@@ -12,6 +12,11 @@ import com.example.e_med_help.services.UsersServiceInterface;
 import com.example.e_med_help.utils.CreatePDF;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -119,6 +124,18 @@ public class PhysicianController {
         return gson.toJson(medFilesService.findByCountry(id));
     }
 
-
+    @GetMapping(value = "/download/{id}")
+    public ResponseEntity<Resource> downloadFile1(@PathVariable("id") Integer id) {
+        //1.  Φερτε το Entity με βαση το id
+        //2.  Επιστρεψτε το byte array του Entity
+        MedFile f = medFilesService.getMedFile(id);
+        HttpHeaders header = new HttpHeaders();
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + f.getFFilename());
+        return ResponseEntity.ok()
+                .headers(header)
+                .contentLength(f.getFData().length)
+                .contentType(MediaType.parseMediaType("application/octet-stream"))//all types of files
+                .body(new ByteArrayResource(f.getFData()));
+    }
 
 }
