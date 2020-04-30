@@ -30,6 +30,11 @@ public class PatientController {
         return "patient";
     }
 
+    @GetMapping("/payment")
+    public String goHome1() { return "mypayment"; }
+
+
+
 //    @GetMapping("/home")
 //    public String setMedFile(Model model) {
 //        model.addAttribute("myfile", new MedFileDto());
