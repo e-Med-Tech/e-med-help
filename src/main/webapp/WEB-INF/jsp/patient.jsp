@@ -107,7 +107,7 @@ Author URL: https://bootstrapmade.com
                 <div class="collapse text-left" id="message">
                     <li><a href=""><i class="fa fa-envelope fa-fw"></i>From Doctor<span
                             class="badge badge-pill badge-info pull-right">3</span></a></li>
-                    <li><a href=""><i class="fa fa-envelope fa-fw"></i>From Pharmacy<span
+                    <li><a href="${pageContext.request.contextPath}/patient/payment" target="_blank"><i class="fa fa-envelope fa-fw"></i>Pay Prescription<span
                             class="badge badge-pill badge-info pull-right">2</span></a></li>
                 </div>
 
