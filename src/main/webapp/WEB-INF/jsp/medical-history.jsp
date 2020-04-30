@@ -59,7 +59,7 @@
     <div class="container"
          style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
         <div class="row">
-            <form role="form">
+            <form:form role="form" action="${pageContext.request.contextPath}/physician/downnload/" method="get">
                 <div class="form-group">
                     <label for="patient-name">Patient's Name:</label>
                     <select id="patient-name" name="patient">
@@ -71,9 +71,6 @@
                 <div class="form-group">
                     <label for="med-files">Medical Files:</label>
                     <select id="med-files" name="med-files">
-                        <%--                        <c:forEach items="${patientsList}" var="name">--%>
-                        <%--                            <option value="${name.id}"><c:out value="${name.name}"/></option>--%>
-                        <%--                        </c:forEach>--%>
                     </select>
                 </div>
 
@@ -81,7 +78,7 @@
                     <input name="submit" id="submit-btn" class="btn btn-primary"
                            type="submit" value="Submit" href="${pageContext.request.contextPath}/physician/download/"/>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
 </main>
