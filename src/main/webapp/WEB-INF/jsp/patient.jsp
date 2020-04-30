@@ -9,6 +9,10 @@
     <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
     <title>e-Med-Help Patient page</title>
 
+
+
+    
+
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
