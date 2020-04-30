@@ -26,3 +26,23 @@ $(document).ready(
 
 
 
+$(document).ready(
+    function () {
+        $('#checkout').on('click', () => {
+
+
+                event.preventDefault();
+                Swal.fire(
+                    'Order successful!',
+                    'Billing sent to patient.',
+                    'success'
+                ).then(function () {
+
+
+
+                  location.reload();
+                });
+
+
+        });
+    });

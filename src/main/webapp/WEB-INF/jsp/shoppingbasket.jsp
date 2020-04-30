@@ -207,7 +207,7 @@
                 <div class="total-value final-value" id="basket-total">0.00</div>
             </div>
             <div class="summary-checkout" >
-                <a href="${pageContext.request.contextPath}/payment"><button class="checkout-cta">Send to patient for checkout</button></a>
+                <a href="#"><button id="checkout" class="checkout-cta">Send to patient for checkout</button></a>
             </div>
 
         </div>
@@ -296,6 +296,11 @@
 <script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
 <script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
 <script src="${pageContext.request.contextPath}/js/shopping-basket.js"></script>
+
+<script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="sweetalert2.all.min.js"></script>
+
 
 </body>
 
