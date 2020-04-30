@@ -31,7 +31,7 @@ public class PatientController {
     }
 
     @GetMapping("/payment")
-    public String goHome1() { return "mypayment"; }
+    public String goHome1() { return "mypaypal"; }
 
 
 
