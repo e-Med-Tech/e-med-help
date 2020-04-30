@@ -31,6 +31,11 @@ public class PrescriptionFileServiceImplementation implements PrescriptionFileSe
     }
 
     @Override
+    public PrescriptionFile findPresById(int id) {
+        return fileRepository.findById(id).get();
+    }
+
+    @Override
     public List<PrescriptionFile> findPrescriptionFileByPatient(int id) {
         List<PrescriptionFile> files = new ArrayList<>();
         List<User> users = (List<User>) usersRepository.findAll();

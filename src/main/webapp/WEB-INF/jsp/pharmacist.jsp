@@ -80,8 +80,9 @@
 
                         <div class="ficon features">
                             <div class="wow bounceIn" data-wow-offset="0" data-wow-delay="0.4s">
-                                <iframe src="https://www.ece.ntua.gr/gr/announcement/616" width="100%" height="450px">
-                                </iframe></div>
+                                <a href="${pageContext.request.contextPath}/pharmacist/prescription-lists/${user.UId}" class="btn btn-default" target="_blank" role="button"><b> View Prescriptions</b></a>
+
+                            </div>
 
                             <div class="ficon features"></div>
                             <h2>Execute prescription</h2>

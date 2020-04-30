@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
-    <title>Medical History</title>
+    <title>Prescriptions</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -61,19 +61,14 @@
         <div class="row">
             <form role="form">
                 <div class="form-group">
-                    <label for="patient-name">Patient's Name:</label>
+                    <label for="patient-name">Prescriptions:</label>
                     <select id="patient-name" name="patient">
-                        <c:forEach items="${patientsList}" var="name">
-                            <option value="${name.UId}"><c:out value="${name.UName} ${name.USurname}"/></option>
+                        <c:forEach items="${presciptions}" var="name">
+                            <option value="${name.FId}"><c:out value="${name.FFilename} ${name.USurname}"/></option>
                         </c:forEach>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="med-files">Medical Files:</label>
-                    <select id="med-files" name="med-files">
-                    </select>
-                </div>
-                    <a href="${pageContext.request.contextPath}/physician/download/" id="submit-btn">Download</a>
+                    <a href="${pageContext.request.contextPath}/pharmacist/download/+${name.FId}" id="submit-btn">Download</a>
                 </div>
             </form>
         </div>
@@ -161,33 +156,33 @@
 <script src="${pageContext.request.contextPath}/js/functions.js"></script>
 <script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
 <script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#patient-name').on('change', function () {
-            const patientId = $(this).val();
-            console.log(patientId);
-            $.ajax({
-                type: 'GET',
-                url: '${pageContext.request.contextPath}/physician/loadMedFilesByPatient/' + patientId,
-                success: function (data) {
-                    console.log(data);
-                    const result = JSON.parse(data);
-                    console.log(result);
-                    let s = "";
-                    for (let i = 0; i < result.length; i++) {
-                        s += '<option value="'+ result[i].id + '">'+result[i].name+'</option>';
-                    }
-                    console.log(s);
-                    $('#med-files').html(s);
-                }
-            });
-        });
-        $('#med-files').on('selected',function(){
-            let id = $(this).val();
-            $('#submit-btn').getAttribute("href").append(id);
-        })
-    });
-</script>
+<%--<script type="text/javascript">--%>
+<%--    $(document).ready(function () {--%>
+<%--        $('#patient-name').on('change', function () {--%>
+<%--            const patientId = $(this).val();--%>
+<%--            console.log(patientId);--%>
+<%--            $.ajax({--%>
+<%--                type: 'GET',--%>
+<%--                url: '${pageContext.request.contextPath}/physician/loadMedFilesByPatient/' + patientId,--%>
+<%--                success: function (data) {--%>
+<%--                    console.log(data);--%>
+<%--                    const result = JSON.parse(data);--%>
+<%--                    console.log(result);--%>
+<%--                    let s = "";--%>
+<%--                    for (let i = 0; i < result.length; i++) {--%>
+<%--                        s += '<option value="'+ result[i].id + '">'+result[i].name+'</option>';--%>
+<%--                    }--%>
+<%--                    console.log(s);--%>
+<%--                    $('#med-files').html(s);--%>
+<%--                }--%>
+<%--            });--%>
+<%--        });--%>
+<%--        $('#med-files').on('selected', function, function(){--%>
+<%--            let id = $(this).val();--%>
+<%--            $('#submit-btn').getAttribute("href").append(id);--%>
+<%--        })--%>
+<%--    });--%>
+<%--</script>--%>
 
 
 </body>

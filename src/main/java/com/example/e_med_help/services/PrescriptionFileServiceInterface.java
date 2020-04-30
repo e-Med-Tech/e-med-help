@@ -8,6 +8,8 @@ import java.util.List;
 public interface PrescriptionFileServiceInterface {
     void insertPrescriptionFile(PrescriptionFile prescriptionFile);
 
+    PrescriptionFile findPresById(int id);
+
     List<PrescriptionFile> findPrescriptionFileByPatient(int id);
 
     List<PrescriptionFile> findPrescriptionFileByDoctor(int id);
