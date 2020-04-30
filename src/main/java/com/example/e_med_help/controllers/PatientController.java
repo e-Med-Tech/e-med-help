@@ -44,26 +44,7 @@ public class PatientController {
             @RequestParam("userId") int userId,
             @RequestParam("userText") String userText,
             ModelMap modelMap) {
-
-
-        System.out.println(username);
-        System.out.println(userId);
-        System.out.println(usersurname);
-        System.out.println("-----");
-        System.out.println("pdf");
-        System.out.println(userPdf);
-        System.out.println(userPdf.getOriginalFilename());
-        System.out.println(userPdf.isEmpty());
-        System.out.println(!userPdf.isEmpty());
-        System.out.println("-----");
-        System.out.println("Text");
-        System.out.println(userText);
-        System.out.println(userText.equals(""));
-        System.out.println(!userText.equals(""));
-
-
         String file_name = "MedicalHistory_" + username + "_" + usersurname + ".pdf";
-
         if (userPdf.isEmpty() && !userText.equals("")) {
             MultipartFile file = new CreatePDF().createMedPDF(username, usersurname, userText);
             MedFile mdFile = new MedFile();
@@ -77,7 +58,6 @@ public class PatientController {
                 e.printStackTrace();
             }
             medFilesServiceInterface.insertMedFile(mdFile);
-
         } else if (!userPdf.isEmpty() && userText.equals("")) {
             MedFile mdFilePdf = new MedFile();
             mdFilePdf.setFUId(usersServiceImplementation.getUserById(userId));
@@ -111,9 +91,7 @@ public class PatientController {
             medFilesServiceInterface.insertMedFile(mdText);
             medFilesServiceInterface.insertMedFile(mdPdf);
         }
-        System.out.println("Success01");
         return "redirect:/patient/home";
     }
-
 }
 

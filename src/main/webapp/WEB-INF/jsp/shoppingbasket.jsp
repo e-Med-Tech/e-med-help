@@ -1,19 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Natasa
-  Date: 4/28/2020
-  Time: 11:24 PM
-  To change this template use File | Settings | File Templates.
---%>
-<<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="description" content="">
-
-    <title>Order medicine page</title>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
+    <title>e-Med-Help Order medicine page</title>
 
     <!-- Bootstrap -->
 
@@ -54,12 +48,10 @@
         <div class="navbar-collapse collapse">
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
                     <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
                         &nbsp; ${user.UName} ${user.USurname}</a></li>
+                    <li role="presentation"><a  href="${pageContext.request.contextPath}/"> <i class="fa fa-sign-out"></i>
+                        Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -103,9 +95,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
         <div class="basket-product">
             <div class="item">
@@ -122,9 +112,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
 
         <div class="basket-product">
@@ -142,9 +130,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
         <div class="basket-product">
             <div class="item">
@@ -161,9 +147,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
 
         <div class="basket-product">
@@ -181,9 +165,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
 
         <div class="basket-product">
@@ -201,9 +183,7 @@
                 <input type="number" value="0" min="0" class="quantity-field">
             </div>
             <div class="subtotal">0.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
+
         </div>
 
     </div>

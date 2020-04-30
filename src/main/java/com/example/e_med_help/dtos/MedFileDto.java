@@ -4,34 +4,41 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MedFileDto {
 
-    private int userId;
-    private String username, usersurname;
+    private int id;
+    private String name;
+    private String username;
+    private String usersurname;
     private String userText;
     private MultipartFile userPdf;
 
     public MedFileDto() {
     }
 
-    public MedFileDto(int userId, String username, String usersurname, String userText) {
-        this.userId = userId;
+    public MedFileDto(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public MedFileDto(int id, String username, String usersurname, String userText) {
+        this.id = id;
         this.username = username;
         this.usersurname = usersurname;
         this.userText = userText;
     }
 
-    public MedFileDto(int userId, String username, String usersurname, MultipartFile userPdf) {
-        this.userId = userId;
+    public MedFileDto(int id, String username, String usersurname, MultipartFile userPdf) {
+        this.id = id;
         this.username = username;
         this.usersurname = usersurname;
         this.userPdf = userPdf;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {

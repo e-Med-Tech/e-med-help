@@ -1,17 +1,12 @@
-<%-- 
-    Document   : error
-    Created on : Apr 17, 2020, 9:21:32 PM
-    Author     : Natasa
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="description" content="">
-
-    <title>e-Med-Help Homepage</title>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
+    <title>e-Med-Help Error page</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">

@@ -1,15 +1,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="description" content="">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
-    <title>e-Med-Help Login page</title>
+    <title>Medical History</title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -21,86 +21,67 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/set1.css"/>
     <link href="${pageContext.request.contextPath}/css/overwrite.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/signupform.css" rel="stylesheet">
 
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- =======================================================
-      Theme Name: eNno
-      Theme URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-      Author: BootstrapMade
-      Author URL: https://bootstrapmade.com
-    ======================================================= -->
-
-    <style>
-        .error {
-
-            color: red;
-
-        }
-    </style>
 </head>
 
-
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target=".navbar-collapse.collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <span>e-Med-Help</span>
-            </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <div class="menu">
-                <ul class="nav nav-tabs" role="tablist">
-
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/registerForm">Sign Up</a></li>
-                    <li role="presentation" class="active"><a
-                            href="${pageContext.request.contextPath}/loginForm">Login</a></li>
-                    <li role="presentation"><a href="${pageContext.request.contextPath}/contact">Contact</a></li>
-                </ul>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target=".navbar-collapse.collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span>e-Med-Help</span>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="menu">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="#"> <i class="fa fa-user"></i>
+                            &nbsp; ${user.UName} ${user.USurname}</a></li>
+                        <li role="presentation"><a href="${pageContext.request.contextPath}/"> <i
+                                class="fa fa-sign-out"></i>
+                            Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </nav>
+</header>
+<main>
+    <div class="container"
+         style="margin-top:5%; margin-left:auto; margin-right:auto; padding:5%; border:2px dashed #0db4be;">
+        <div class="row">
+            <form:form role="form" action="${pageContext.request.contextPath}/physician/downnload/" method="get">
+                <div class="form-group">
+                    <label for="patient-name">Patient's Name:</label>
+                    <select id="patient-name" name="patient">
+                        <c:forEach items="${patientsList}" var="name">
+                            <option value="${name.UId}"><c:out value="${name.UName} ${name.USurname}"/></option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="med-files">Medical Files:</label>
+                    <select id="med-files" name="med-files">
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-center" style="justify-content:center; display: flex;">
+                    <input name="submit" id="submit-btn" class="btn btn-primary"
+                           type="submit" value="Submit" href="${pageContext.request.contextPath}/physician/download/"/>
+                </div>
+            </form:form>
+        </div>
     </div>
-</nav>
-
-<div class="signup-form">
-    <form:form method="POST" action="/login" modelAttribute="LoginUserDto">
-        <h2>Login</h2>
-        <p class="hint-text">Log in to your account.</p>
-
-        <div class="form-group">
-            <form:label path="lousername">Username</form:label>
-            <form:input class="form-control" type="text" path="lousername"/>
-            <form:errors path="lousername" class="error"/>
-        </div>
-
-        <div class="form-group">
-            <form:label path="lopassword">Password</form:label>
-            <form:input class="form-control" type="password" path="lopassword"/>
-            <form:errors path="lopassword" class="error"/>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block" id="submitbtn" value="Submit">Login</button>
-            <div class="text-center">Don't have an account? <a href="${pageContext.request.contextPath}/registerForm">Sign
-                up here</a></div>
-        </div>
-
-    </form:form>
-</div>
-
-
+</main>
 <footer>
     <div class="inner-footer">
         <div class="container">
@@ -181,7 +162,41 @@
 <script src="${pageContext.request.contextPath}/js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/fliplightbox.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/functions.js"></script>
+<script src="${pageContext.request.contextPath}/contactform/contactform.js"></script>
+<script src="${pageContext.request.contextPath}/js/alertsuccess.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#patient-name').on('change', function () {
+            const patientId = $(this).val();
+            console.log(patientId);
+            $.ajax({
+                type: 'GET',
+                url: '${pageContext.request.contextPath}/physician/loadMedFilesByPatient/' + patientId,
+                success: function (data) {
+                    console.log(data);
+                    const result = JSON.parse(data);
+                    console.log(result);
+                    let s = "";
+                    for (let i = 0; i < result.length; i++) {
+                        s += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                    }
+                    console.log(s);
+                    $('#med-files').html(s);
+                }
+            });
+        });
+        $('#med-files').on("change",function () {
+            const fileId = $(this).val();
+            console.log(fileId);
+            let btn = $('#submit-btn');
+            let link = "${pageContext.request.contextPath}/physician/download/"+fileId;
+            btn.html(link);
+            console.log(link);
+        });
+    });
+</script>
 
 
 </body>
 </html>
+

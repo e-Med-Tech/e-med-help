@@ -1,17 +1,29 @@
 package com.example.e_med_help.services;
 
+import com.example.e_med_help.dtos.PrescriptionEntity;
 import com.example.e_med_help.models.PrescriptionFile;
 import com.example.e_med_help.models.User;
 import com.example.e_med_help.repositiories.PrescriptionFileRepository;
+import com.example.e_med_help.repositiories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class PrescriptionFileServiceImplementation implements PrescriptionFileServiceInterface{
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+@Transactional
+public class PrescriptionFileServiceImplementation implements PrescriptionFileServiceInterface {
 
     @Autowired
     PrescriptionFileRepository fileRepository;
 
     @Autowired
-    UsersServiceImplementation usersServiceImplementation;
+    UsersServiceInterface usersService;
+
+    @Autowired
+    UsersRepository usersRepository;
 
     @Override
     public void insertPrescriptionFile(PrescriptionFile prescriptionFile) {
@@ -19,18 +31,49 @@ public class PrescriptionFileServiceImplementation implements PrescriptionFileSe
     }
 
     @Override
-    public PrescriptionFile findPrescriptionFileByPatient(int id) {
-        return null;
+    public List<PrescriptionFile> findPrescriptionFileByPatient(int id) {
+        List<PrescriptionFile> files = new ArrayList<>();
+        List<User> users = (List<User>) usersRepository.findAll();
+        for (User u : users) {
+            if (u.getURoleId().getRoleId() == 1 && u.getUId() == id) {
+                files = (List<PrescriptionFile>) u.getPrescriptionFileCollection();
+            }
+        }
+        return files;
     }
 
     @Override
-    public PrescriptionFile findPrescriptionFileByDoctor(int id) {
-        return null;
+    public List<PrescriptionFile> findPrescriptionFileByDoctor(int id) {
+        List<PrescriptionFile> files = new ArrayList<>();
+        List<User> users = (List<User>) usersRepository.findAll();
+        for (User u : users) {
+            if (u.getURoleId().getRoleId() == 2 && u.getUId() == id) {
+                files = (List<PrescriptionFile>) u.getPrescriptionFileCollection();
+            }
+        }
+        return files;
     }
 
     @Override
-    public PrescriptionFile findPrescriptionFileByFarmacy(int id) {
-        return null;
+    public List<PrescriptionFile> findPrescriptionFileByPharmacy(int id) {
+        List<PrescriptionFile> files = new ArrayList<>();
+        List<User> users = (List<User>) usersRepository.findAll();
+        for (User u : users) {
+            if (u.getURoleId().getRoleId() == 3 && u.getUId() == id) {
+                files = (List<PrescriptionFile>) u.getPrescriptionFileCollection();
+            }
+        }
+        return files;
+    }
+
+    @Override
+    public List<PrescriptionEntity> findByPharmacy(int id) {
+        return fileRepository.findByPharmacy(id);
+    }
+
+    @Override
+    public List<PrescriptionEntity> findByPatient(int id) {
+        return fileRepository.findByPatient(id);
     }
 
 

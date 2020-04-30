@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contact
-    Created on : Apr 20, 2020, 11:08:41 PM
-    Author     : Natasa
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
     <title>e-Med-Help Contact page</title>
 
     <!-- Bootstrap -->
